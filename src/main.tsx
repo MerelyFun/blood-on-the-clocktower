@@ -7,3 +7,4 @@ import './styles/art-theme.css';
 import './styles/ui-refinement.css';
 import './styles/mobile.css';
 import './styles/parchment.css';
+import './styles/rounded.css';

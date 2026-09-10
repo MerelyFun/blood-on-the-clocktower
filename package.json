@@ -12,7 +12,9 @@
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-transform-types --test tests/*.test.ts",
     "check": "npm run typecheck && npm test && npm run build",
-    "typecheck:edge": "npx --yes deno@2.9.6 check --no-lock supabase/functions/game/index.ts"
+    "typecheck:edge": "npx --yes deno@2.9.6 check --no-lock supabase/functions/game/index.ts",
+    "predev": "node scripts/prepare-ocr.mjs",
+    "prebuild": "node scripts/prepare-ocr.mjs"
   },
   "engines": {
     "node": ">=22.12"
@@ -20,11 +22,15 @@
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",
     "lucide-react": "1.43.0",
+    "opencc-js": "1.4.2",
     "qrcode.react": "4.2.0",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "tesseract.js": "7.0.0"
   },
   "devDependencies": {
+    "@tesseract.js-data/chi_sim": "1.0.0",
+    "@tesseract.js-data/chi_tra": "1.0.0",
     "@types/node": "26.5.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",
