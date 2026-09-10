@@ -1,0 +1,1532 @@
+{
+  "pack": "血染钟楼网站图像素材包",
+  "version": "1.0",
+  "created": "2026-09-10",
+  "sourceArchive": "血染钟楼网站_源码与部署包_v1(1).zip",
+  "generation": "当前会话图像生成工具；具体模型版本未经独立核验。",
+  "nativeGenerationCount": 4,
+  "nativeGenerationSize": [
+    1536,
+    1024
+  ],
+  "assetCount": 63,
+  "roleIds": {
+    "washerwoman": "public/art/roles/washerwoman.png",
+    "librarian": "public/art/roles/librarian.png",
+    "investigator": "public/art/roles/investigator.png",
+    "chef": "public/art/roles/chef.png",
+    "empath": "public/art/roles/empath.png",
+    "fortuneteller": "public/art/roles/fortuneteller.png",
+    "monk": "public/art/roles/monk.png",
+    "slayer": "public/art/roles/slayer.png",
+    "mayor": "public/art/roles/mayor.png",
+    "drunk": "public/art/roles/drunk.png",
+    "spy": "public/art/roles/spy.png",
+    "imp": "public/art/roles/imp.png",
+    "undertaker": "public/art/roles/undertaker.png",
+    "virgin": "public/art/roles/virgin.png",
+    "soldier": "public/art/roles/soldier.png",
+    "butler": "public/art/roles/butler.png",
+    "saint": "public/art/roles/saint.png",
+    "poisoner": "public/art/roles/poisoner.png",
+    "baron": "public/art/roles/baron.png",
+    "ravenkeeper": "public/art/roles/ravenkeeper.png",
+    "recluse": "public/art/roles/recluse.png",
+    "scarletwoman": "public/art/roles/scarletwoman.png"
+  },
+  "teamDefaults": {
+    "townsfolk": "public/art/teams/townsfolk.png",
+    "outsider": "public/art/teams/outsider.png",
+    "minion": "public/art/teams/minion.png",
+    "demon": "public/art/roles/imp.png",
+    "traveller": "public/art/teams/traveller.png",
+    "fabled": "public/art/teams/fabled.png",
+    "loric": "public/art/decoration/scroll-banner.png"
+  },
+  "alignmentIcons": {
+    "good": "public/art/factions/good.png",
+    "evil": "public/art/factions/evil.png"
+  },
+  "statusIcons": {
+    "alive": "public/art/status/alive.png",
+    "dead": "public/art/status/dead.png",
+    "poisoned": "public/art/status/poisoned.png",
+    "nomination": "public/art/status/nomination.png",
+    "execution": "public/art/status/execution.png",
+    "protected": "public/art/status/protected.png",
+    "unavailable": "public/art/status/unavailable.png",
+    "night-action": "public/art/status/night-action.png",
+    "confused": "public/art/status/confused.png",
+    "ability-used": "public/art/teams/fabled.png",
+    "drunk": "public/art/roles/drunk.png",
+    "ready": "public/art/status/ready.png",
+    "waiting": "public/art/status/waiting.png",
+    "message": "public/art/status/message.png",
+    "private": "public/art/status/private.png",
+    "ghost-vote-available": "public/art/status/ghost-vote-available.png",
+    "ghost-vote-used": "public/art/status/ghost-vote-used.png"
+  },
+  "scriptThumbnails": {
+    "tb": "public/art/backgrounds/town-night-red.png",
+    "bmr": "public/art/backgrounds/clocktower-close.png",
+    "snv": "public/art/decoration/mystery-sigil.png",
+    "custom": "public/art/decoration/scroll-banner.png"
+  },
+  "limitations": [
+    "本轮输出为4张整版图集，独立素材为其裁切/去底整理，并非每张素材均单独原生生成。",
+    "未进行超分辨率处理；尺寸即裁切后的真实像素。",
+    "原图内生成文字仅作视觉参考，不是角色规则或UI功能规范。",
+    "没有独立高清剧本竖版封面、高清全屏背景、或全部角色库的专属图标。"
+  ],
+  "assets": [
+    {
+      "id": "clocktower-title",
+      "name": "钟楼标题主视觉（有字）",
+      "category": "brand",
+      "png": "public/art/brand/clocktower-title.png",
+      "webp": "public/art/brand/clocktower-title.webp",
+      "width": 447,
+      "height": 248,
+      "transparent": false,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        11,
+        35,
+        458,
+        283
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        447,
+        248
+      ],
+      "note": "含生成的游戏名称；仅作标题视觉参考，不是无字背景。"
+    },
+    {
+      "id": "clocktower-wordmark",
+      "name": "钟楼横向标题（有字）",
+      "category": "brand",
+      "png": "public/art/brand/clocktower-wordmark.png",
+      "webp": "public/art/brand/clocktower-wordmark.webp",
+      "width": 297,
+      "height": 97,
+      "transparent": false,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        12,
+        292,
+        309,
+        389
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        297,
+        97
+      ],
+      "note": "有字图，不代替网站中可访问、可复制的 HTML 标题。"
+    },
+    {
+      "id": "clocktower-emblem",
+      "name": "原创钟楼圆形标识",
+      "category": "brand",
+      "png": "public/art/brand/clocktower-emblem.png",
+      "webp": "public/art/brand/clocktower-emblem.webp",
+      "width": 119,
+      "height": 119,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        330,
+        286,
+        449,
+        405
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        48,
+        48
+      ],
+      "note": ""
+    },
+    {
+      "id": "town-night-red",
+      "name": "暗夜钟楼街景",
+      "category": "backgrounds",
+      "png": "public/art/backgrounds/town-night-red.png",
+      "webp": "public/art/backgrounds/town-night-red.webp",
+      "width": 350,
+      "height": 172,
+      "transparent": false,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        475,
+        437,
+        825,
+        609
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        350,
+        172
+      ],
+      "note": "无字场景缩略图；原生 350×172，不是大屏高清背景。"
+    },
+    {
+      "id": "town-day",
+      "name": "白昼城镇广场",
+      "category": "backgrounds",
+      "png": "public/art/backgrounds/town-day.png",
+      "webp": "public/art/backgrounds/town-day.webp",
+      "width": 234,
+      "height": 132,
+      "transparent": false,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        19,
+        342,
+        253,
+        474
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        234,
+        132
+      ],
+      "note": "无字小场景，可用于阶段缩略图。"
+    },
+    {
+      "id": "town-night-blue",
+      "name": "月夜城镇",
+      "category": "backgrounds",
+      "png": "public/art/backgrounds/town-night-blue.png",
+      "webp": "public/art/backgrounds/town-night-blue.webp",
+      "width": 228,
+      "height": 132,
+      "transparent": false,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        265,
+        342,
+        493,
+        474
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        228,
+        132
+      ],
+      "note": "无字小场景，可用于阶段缩略图。"
+    },
+    {
+      "id": "clocktower-close",
+      "name": "钟楼特写",
+      "category": "backgrounds",
+      "png": "public/art/backgrounds/clocktower-close.png",
+      "webp": "public/art/backgrounds/clocktower-close.webp",
+      "width": 233,
+      "height": 135,
+      "transparent": false,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        20,
+        509,
+        253,
+        644
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        233,
+        135
+      ],
+      "note": ""
+    },
+    {
+      "id": "tavern-interior",
+      "name": "烛光酒馆",
+      "category": "backgrounds",
+      "png": "public/art/backgrounds/tavern-interior.png",
+      "webp": "public/art/backgrounds/tavern-interior.webp",
+      "width": 228,
+      "height": 135,
+      "transparent": false,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        265,
+        509,
+        493,
+        644
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        228,
+        135
+      ],
+      "note": ""
+    },
+    {
+      "id": "town-fountain",
+      "name": "城镇喷泉",
+      "category": "backgrounds",
+      "png": "public/art/backgrounds/town-fountain.png",
+      "webp": "public/art/backgrounds/town-fountain.webp",
+      "width": 201,
+      "height": 135,
+      "transparent": false,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        833,
+        474,
+        1034,
+        609
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        201,
+        135
+      ],
+      "note": ""
+    },
+    {
+      "id": "identity-back",
+      "name": "统一身份卡背（无字）",
+      "category": "cards",
+      "png": "public/art/cards/identity-back.png",
+      "webp": "public/art/cards/identity-back.webp",
+      "width": 126,
+      "height": 178,
+      "transparent": false,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1392,
+        429,
+        1518,
+        607
+      ],
+      "processing": "rectangular crop",
+      "recommendedCssMax": [
+        126,
+        178
+      ],
+      "note": "所有玩家使用同一张卡背；不得按隐藏身份切换。原生126×178，仅适合作为小卡面纹理。"
+    },
+    {
+      "id": "scroll-banner",
+      "name": "空白卷轴条",
+      "category": "decoration",
+      "png": "public/art/decoration/scroll-banner.png",
+      "webp": "public/art/decoration/scroll-banner.webp",
+      "width": 181,
+      "height": 70,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1054,
+        442,
+        1235,
+        512
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        181,
+        70
+      ],
+      "note": ""
+    },
+    {
+      "id": "parchment-square",
+      "name": "空白羊皮纸",
+      "category": "decoration",
+      "png": "public/art/decoration/parchment-square.png",
+      "webp": "public/art/decoration/parchment-square.webp",
+      "width": 124,
+      "height": 126,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1247,
+        428,
+        1371,
+        554
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        124,
+        126
+      ],
+      "note": ""
+    },
+    {
+      "id": "parchment-panel",
+      "name": "空白羊皮纸面板",
+      "category": "decoration",
+      "png": "public/art/decoration/parchment-panel.png",
+      "webp": "public/art/decoration/parchment-panel.webp",
+      "width": 238,
+      "height": 122,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        9,
+        847,
+        247,
+        969
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        238,
+        122
+      ],
+      "note": ""
+    },
+    {
+      "id": "dark-panel",
+      "name": "空白深色描金面板",
+      "category": "decoration",
+      "png": "public/art/decoration/dark-panel.png",
+      "webp": "public/art/decoration/dark-panel.webp",
+      "width": 206,
+      "height": 134,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        256,
+        837,
+        462,
+        971
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        206,
+        134
+      ],
+      "note": ""
+    },
+    {
+      "id": "speech-parchment",
+      "name": "空白羊皮纸消息框",
+      "category": "decoration",
+      "png": "public/art/decoration/speech-parchment.png",
+      "webp": "public/art/decoration/speech-parchment.webp",
+      "width": 154,
+      "height": 110,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        630,
+        852,
+        784,
+        962
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        154,
+        110
+      ],
+      "note": ""
+    },
+    {
+      "id": "speech-blue",
+      "name": "空白蓝色消息框",
+      "category": "decoration",
+      "png": "public/art/decoration/speech-blue.png",
+      "webp": "public/art/decoration/speech-blue.webp",
+      "width": 156,
+      "height": 109,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        801,
+        852,
+        957,
+        961
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        156,
+        109
+      ],
+      "note": ""
+    },
+    {
+      "id": "wax-seal",
+      "name": "红色蜡封",
+      "category": "decoration",
+      "png": "public/art/decoration/wax-seal.png",
+      "webp": "public/art/decoration/wax-seal.webp",
+      "width": 120,
+      "height": 118,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        966,
+        850,
+        1086,
+        968
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        120,
+        118
+      ],
+      "note": ""
+    },
+    {
+      "id": "ornamental-divider",
+      "name": "金属装饰分隔线",
+      "category": "decoration",
+      "png": "public/art/decoration/ornamental-divider.png",
+      "webp": "public/art/decoration/ornamental-divider.webp",
+      "width": 171,
+      "height": 43,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        1226,
+        886,
+        1397,
+        929
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        171,
+        43
+      ],
+      "note": ""
+    },
+    {
+      "id": "washerwoman",
+      "name": "洗衣妇",
+      "category": "roles",
+      "png": "public/art/roles/washerwoman.png",
+      "webp": "public/art/roles/washerwoman.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1041,
+        36,
+        1128,
+        123
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "librarian",
+      "name": "图书管理员",
+      "category": "roles",
+      "png": "public/art/roles/librarian.png",
+      "webp": "public/art/roles/librarian.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1140,
+        36,
+        1227,
+        123
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "investigator",
+      "name": "调查员",
+      "category": "roles",
+      "png": "public/art/roles/investigator.png",
+      "webp": "public/art/roles/investigator.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1239,
+        36,
+        1326,
+        123
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "chef",
+      "name": "厨师",
+      "category": "roles",
+      "png": "public/art/roles/chef.png",
+      "webp": "public/art/roles/chef.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1337,
+        36,
+        1424,
+        123
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "empath",
+      "name": "共情者",
+      "category": "roles",
+      "png": "public/art/roles/empath.png",
+      "webp": "public/art/roles/empath.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1436,
+        36,
+        1523,
+        123
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "fortuneteller",
+      "name": "占卜师",
+      "category": "roles",
+      "png": "public/art/roles/fortuneteller.png",
+      "webp": "public/art/roles/fortuneteller.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        942,
+        150,
+        1029,
+        237
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "monk",
+      "name": "僧侣",
+      "category": "roles",
+      "png": "public/art/roles/monk.png",
+      "webp": "public/art/roles/monk.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1140,
+        150,
+        1227,
+        237
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "slayer",
+      "name": "猎手",
+      "category": "roles",
+      "png": "public/art/roles/slayer.png",
+      "webp": "public/art/roles/slayer.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1240,
+        150,
+        1327,
+        237
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "mayor",
+      "name": "市长",
+      "category": "roles",
+      "png": "public/art/roles/mayor.png",
+      "webp": "public/art/roles/mayor.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1338,
+        150,
+        1425,
+        237
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "drunk",
+      "name": "酒鬼",
+      "category": "roles",
+      "png": "public/art/roles/drunk.png",
+      "webp": "public/art/roles/drunk.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1436,
+        150,
+        1523,
+        237
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "spy",
+      "name": "间谍",
+      "category": "roles",
+      "png": "public/art/roles/spy.png",
+      "webp": "public/art/roles/spy.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        942,
+        267,
+        1029,
+        354
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "imp",
+      "name": "小恶魔",
+      "category": "roles",
+      "png": "public/art/roles/imp.png",
+      "webp": "public/art/roles/imp.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1140,
+        267,
+        1227,
+        354
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": "原创象征性图案，非官方角色图标；角色 ID 以源码为准。"
+    },
+    {
+      "id": "undertaker",
+      "name": "送葬者",
+      "category": "roles",
+      "png": "public/art/roles/undertaker.png",
+      "webp": "public/art/roles/undertaker.webp",
+      "width": 67,
+      "height": 67,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        858,
+        402,
+        925,
+        469
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "virgin",
+      "name": "贞洁者",
+      "category": "roles",
+      "png": "public/art/roles/virgin.png",
+      "webp": "public/art/roles/virgin.webp",
+      "width": 93,
+      "height": 93,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        625,
+        254,
+        718,
+        347
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        40,
+        40
+      ],
+      "note": ""
+    },
+    {
+      "id": "soldier",
+      "name": "士兵",
+      "category": "roles",
+      "png": "public/art/roles/soldier.png",
+      "webp": "public/art/roles/soldier.webp",
+      "width": 65,
+      "height": 65,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        313,
+        835,
+        378,
+        900
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        30,
+        30
+      ],
+      "note": ""
+    },
+    {
+      "id": "butler",
+      "name": "管家",
+      "category": "roles",
+      "png": "public/art/roles/butler.png",
+      "webp": "public/art/roles/butler.webp",
+      "width": 93,
+      "height": 93,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        328,
+        254,
+        421,
+        347
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        40,
+        40
+      ],
+      "note": "以侍酒杯作原创象征，不是官方图标。"
+    },
+    {
+      "id": "saint",
+      "name": "圣徒",
+      "category": "roles",
+      "png": "public/art/roles/saint.png",
+      "webp": "public/art/roles/saint.webp",
+      "width": 93,
+      "height": 93,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        528,
+        254,
+        621,
+        347
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        40,
+        40
+      ],
+      "note": ""
+    },
+    {
+      "id": "poisoner",
+      "name": "投毒者",
+      "category": "roles",
+      "png": "public/art/roles/poisoner.png",
+      "webp": "public/art/roles/poisoner.webp",
+      "width": 93,
+      "height": 93,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        1022,
+        254,
+        1115,
+        347
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        40,
+        40
+      ],
+      "note": ""
+    },
+    {
+      "id": "baron",
+      "name": "男爵",
+      "category": "roles",
+      "png": "public/art/roles/baron.png",
+      "webp": "public/art/roles/baron.webp",
+      "width": 67,
+      "height": 67,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        237,
+        402,
+        304,
+        469
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        30,
+        30
+      ],
+      "note": ""
+    },
+    {
+      "id": "ravenkeeper",
+      "name": "守鸦人",
+      "category": "roles",
+      "png": "public/art/roles/ravenkeeper.png",
+      "webp": "public/art/roles/ravenkeeper.webp",
+      "width": 169,
+      "height": 163,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1101,
+        614,
+        1270,
+        777
+      ],
+      "processing": "white-largest + pure-white interior cleanup",
+      "recommendedCssMax": [
+        64,
+        64
+      ],
+      "note": "以乌鸦作原创象征；透明插画，不是圆形令牌。"
+    },
+    {
+      "id": "recluse",
+      "name": "隐士",
+      "category": "roles",
+      "png": "public/art/roles/recluse.png",
+      "webp": "public/art/roles/recluse.webp",
+      "width": 73,
+      "height": 189,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1286,
+        583,
+        1359,
+        772
+      ],
+      "processing": "white-largest + pure-white interior cleanup",
+      "recommendedCssMax": [
+        38,
+        76
+      ],
+      "note": "以独居提灯作原创象征；透明插画。"
+    },
+    {
+      "id": "scarletwoman",
+      "name": "红唇女郎",
+      "category": "roles",
+      "png": "public/art/roles/scarletwoman.png",
+      "webp": "public/art/roles/scarletwoman.webp",
+      "width": 69,
+      "height": 71,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1451,
+        628,
+        1520,
+        699
+      ],
+      "processing": "white-largest + pure-white interior cleanup",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": "以红玫瑰作原创象征；保留角色中文名称。"
+    },
+    {
+      "id": "townsfolk",
+      "name": "镇民通用令牌",
+      "category": "teams",
+      "png": "public/art/teams/townsfolk.png",
+      "webp": "public/art/teams/townsfolk.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        942,
+        36,
+        1029,
+        123
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": ""
+    },
+    {
+      "id": "outsider",
+      "name": "外来者通用令牌",
+      "category": "teams",
+      "png": "public/art/teams/outsider.png",
+      "webp": "public/art/teams/outsider.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1436,
+        267,
+        1523,
+        354
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": ""
+    },
+    {
+      "id": "minion",
+      "name": "爪牙通用令牌",
+      "category": "teams",
+      "png": "public/art/teams/minion.png",
+      "webp": "public/art/teams/minion.webp",
+      "width": 87,
+      "height": 87,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        1041,
+        267,
+        1128,
+        354
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        38,
+        38
+      ],
+      "note": ""
+    },
+    {
+      "id": "traveller",
+      "name": "旅行者罗盘",
+      "category": "teams",
+      "png": "public/art/teams/traveller.png",
+      "webp": "public/art/teams/traveller.webp",
+      "width": 126,
+      "height": 134,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        1404,
+        840,
+        1530,
+        974
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        56,
+        56
+      ],
+      "note": ""
+    },
+    {
+      "id": "fabled",
+      "name": "传奇角色通用星徽",
+      "category": "teams",
+      "png": "public/art/teams/fabled.png",
+      "webp": "public/art/teams/fabled.webp",
+      "width": 71,
+      "height": 71,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1298,
+        59,
+        1369,
+        130
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "good",
+      "name": "善良阵营徽章",
+      "category": "factions",
+      "png": "public/art/factions/good.png",
+      "webp": "public/art/factions/good.webp",
+      "width": 133,
+      "height": 133,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        481,
+        63,
+        614,
+        196
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        56,
+        56
+      ],
+      "note": ""
+    },
+    {
+      "id": "evil",
+      "name": "邪恶阵营徽章",
+      "category": "factions",
+      "png": "public/art/factions/evil.png",
+      "webp": "public/art/factions/evil.webp",
+      "width": 137,
+      "height": 137,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        624,
+        63,
+        761,
+        200
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        56,
+        56
+      ],
+      "note": ""
+    },
+    {
+      "id": "mystery-sigil",
+      "name": "神秘纹章（纯装饰）",
+      "category": "decoration",
+      "png": "public/art/decoration/mystery-sigil.png",
+      "webp": "public/art/decoration/mystery-sigil.webp",
+      "width": 138,
+      "height": 136,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        773,
+        66,
+        911,
+        202
+      ],
+      "processing": "white-largest",
+      "recommendedCssMax": [
+        138,
+        136
+      ],
+      "note": "只作装饰；源码没有中立阵营，不能作为第三阵营。"
+    },
+    {
+      "id": "alive",
+      "name": "存活",
+      "category": "status",
+      "png": "public/art/status/alive.png",
+      "webp": "public/art/status/alive.webp",
+      "width": 75,
+      "height": 75,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1021,
+        60,
+        1096,
+        135
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "dead",
+      "name": "死亡",
+      "category": "status",
+      "png": "public/art/status/dead.png",
+      "webp": "public/art/status/dead.webp",
+      "width": 75,
+      "height": 75,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1102,
+        60,
+        1177,
+        135
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "poisoned",
+      "name": "中毒",
+      "category": "status",
+      "png": "public/art/status/poisoned.png",
+      "webp": "public/art/status/poisoned.webp",
+      "width": 75,
+      "height": 75,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1184,
+        60,
+        1259,
+        135
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "nomination",
+      "name": "提名",
+      "category": "status",
+      "png": "public/art/status/nomination.png",
+      "webp": "public/art/status/nomination.webp",
+      "width": 75,
+      "height": 75,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1021,
+        172,
+        1096,
+        247
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "execution",
+      "name": "处决",
+      "category": "status",
+      "png": "public/art/status/execution.png",
+      "webp": "public/art/status/execution.webp",
+      "width": 75,
+      "height": 75,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1102,
+        172,
+        1177,
+        247
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "protected",
+      "name": "受保护",
+      "category": "status",
+      "png": "public/art/status/protected.png",
+      "webp": "public/art/status/protected.webp",
+      "width": 75,
+      "height": 75,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1184,
+        172,
+        1259,
+        247
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "unavailable",
+      "name": "不可用",
+      "category": "status",
+      "png": "public/art/status/unavailable.png",
+      "webp": "public/art/status/unavailable.webp",
+      "width": 69,
+      "height": 69,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1376,
+        59,
+        1445,
+        128
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "night-action",
+      "name": "夜间行动",
+      "category": "status",
+      "png": "public/art/status/night-action.png",
+      "webp": "public/art/status/night-action.webp",
+      "width": 69,
+      "height": 69,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1456,
+        165,
+        1525,
+        234
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "confused",
+      "name": "状态异常／自定义标记",
+      "category": "status",
+      "png": "public/art/status/confused.png",
+      "webp": "public/art/status/confused.webp",
+      "width": 71,
+      "height": 71,
+      "transparent": true,
+      "source": "source/sheet-04.png",
+      "sourceCrop": [
+        1299,
+        164,
+        1370,
+        235
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "ready",
+      "name": "已准备",
+      "category": "status",
+      "png": "public/art/status/ready.png",
+      "webp": "public/art/status/ready.webp",
+      "width": 65,
+      "height": 65,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        17,
+        835,
+        82,
+        900
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        30,
+        30
+      ],
+      "note": ""
+    },
+    {
+      "id": "waiting",
+      "name": "等待中",
+      "category": "status",
+      "png": "public/art/status/waiting.png",
+      "webp": "public/art/status/waiting.webp",
+      "width": 67,
+      "height": 67,
+      "transparent": true,
+      "source": "source/sheet-01.png",
+      "sourceCrop": [
+        90,
+        834,
+        157,
+        901
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        30,
+        30
+      ],
+      "note": ""
+    },
+    {
+      "id": "message",
+      "name": "消息",
+      "category": "status",
+      "png": "public/art/status/message.png",
+      "webp": "public/art/status/message.webp",
+      "width": 67,
+      "height": 67,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        542,
+        402,
+        609,
+        469
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        30,
+        30
+      ],
+      "note": ""
+    },
+    {
+      "id": "private",
+      "name": "私密可见",
+      "category": "status",
+      "png": "public/art/status/private.png",
+      "webp": "public/art/status/private.webp",
+      "width": 67,
+      "height": 67,
+      "transparent": true,
+      "source": "source/sheet-03.png",
+      "sourceCrop": [
+        1337,
+        402,
+        1404,
+        469
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        30,
+        30
+      ],
+      "note": ""
+    },
+    {
+      "id": "ghost-vote-available",
+      "name": "死者票可用",
+      "category": "status",
+      "png": "public/art/status/ghost-vote-available.png",
+      "webp": "public/art/status/ghost-vote-available.webp",
+      "width": 79,
+      "height": 79,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        1156,
+        719,
+        1235,
+        798
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    },
+    {
+      "id": "ghost-vote-used",
+      "name": "死者票已用",
+      "category": "status",
+      "png": "public/art/status/ghost-vote-used.png",
+      "webp": "public/art/status/ghost-vote-used.webp",
+      "width": 79,
+      "height": 79,
+      "transparent": true,
+      "source": "source/sheet-02.png",
+      "sourceCrop": [
+        1251,
+        719,
+        1330,
+        798
+      ],
+      "processing": "circle",
+      "recommendedCssMax": [
+        32,
+        32
+      ],
+      "note": ""
+    }
+  ]
+}

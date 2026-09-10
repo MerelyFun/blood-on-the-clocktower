@@ -1,0 +1,8 @@
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './styles/app.css';
+if(localStorage.getItem('bt-large-text')==='true')document.documentElement.classList.add('large-text');
+createRoot(document.getElementById('root')!).render(<App/>);
+import './styles/art-theme.css';
+import './styles/ui-refinement.css';
+import './styles/mobile.css';

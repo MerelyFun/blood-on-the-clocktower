@@ -1,0 +1,19 @@
+/* Add only after retaining the project's original app.css. Optional; not applied. */
+.role-token.has-art > img {
+  display: block;
+  object-fit: contain;
+  width: 44px;
+  height: 44px;
+  max-width: calc(100% - 10px);
+  max-height: calc(100% - 10px);
+}
+.role-token.small.has-art > img { width: 26px; height: 26px; }
+/* The existing revealed identity token is 90 px. Do not enlarge small raster art to fill it. */
+.identity-card.revealed .role-token.has-art > img { width: 44px; height: 44px; }
+.script-preview .script-art-thumb {
+  width: 80px; height: 48px; object-fit: contain; flex-shrink: 0;
+  border-radius: 5px; background: #111315;
+}
+.phase-art-thumb { display: block; width: 110px; height: auto; max-width: 100%; }
+.brand-mark > .brand-art { display: block; width: 26px; height: 26px; object-fit: contain; }
+/* Do not replace real buttons, labels, focus styles or live vote counts with image text. */

@@ -1,0 +1,20 @@
+{
+  "project": "clocktower-storyteller",
+  "version": "1.0.0",
+  "created_at": "2026-09-09T14:34:01.585736+00:00",
+  "build": "npm run build (Vite static assets)",
+  "frontend_cloud_configuration": "configured via public environment variables for pyulxbobnxyudrlisqyv.supabase.co; dist rebuilt",
+  "tests_run": true,
+  "browser_checks_run": true,
+  "supabase_schema_applied": true,
+  "supabase_function_deployed": true,
+  "github_deployed": false,
+  "updated_at": "2026-09-10",
+  "tests_passed": 34,
+  "browser_check_scope": "Local mode, Edge via Playwright, desktop 1440x1000 and mobile 390x844; create, traveller, deal, refresh, phase, tally, execute, archive restore, custom script",
+  "frontend_typecheck_passed": true,
+  "edge_typecheck_passed": true,
+  "live_cloud_checks_run": true,
+  "live_cloud_check_scope": "Real hosted project: create and retry, anonymous join and approval, deal, private messages, cross-user RLS and command isolation, identity acknowledgement retry, two browser contexts at desktop/mobile widths, device rebind; disposable room and users removed",
+  "user_email_login_verified": false
+}

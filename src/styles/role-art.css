@@ -1,0 +1,13 @@
+/* Keep the supplied small raster originals crisp inside the existing role medallions. */
+.role-token.has-art > img {
+  display: block;
+  width: 44px;
+  height: 44px;
+  max-width: calc(100% - 10px);
+  max-height: calc(100% - 10px);
+  object-fit: contain;
+  filter: drop-shadow(0 2px 3px #0008);
+  pointer-events: none;
+}
+.role-token.small.has-art > img { width: 26px; height: 26px; }
+.identity-card.revealed .role-token.has-art > img { width: 44px; height: 44px; }

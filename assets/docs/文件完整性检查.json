@@ -1,0 +1,11 @@
+{
+  "checked_images": 126,
+  "native_source_sheets": 4,
+  "role_ids_checked": 22,
+  "preview_links": "all existing",
+  "dimensions": "PNG and WebP match manifest",
+  "original_site_modified": false,
+  "browser_or_game_tests_run": false,
+  "models_verified": false,
+  "result": "passed file-integrity checks; not a deployed-site acceptance test"
+}

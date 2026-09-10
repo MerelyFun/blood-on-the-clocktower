@@ -1,0 +1,35 @@
+{
+  "name": "clocktower-storyteller",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "start": "node scripts/serve-dist.mjs",
+    "db:migration": "node scripts/create-migration.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-transform-types --test tests/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "typecheck:edge": "npx --yes deno@2.9.6 check --no-lock supabase/functions/game/index.ts"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.116.0",
+    "lucide-react": "1.43.0",
+    "qrcode.react": "4.2.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "26.5.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "6.1.1",
+    "typescript": "7.0.2",
+    "vite": "8.2.2"
+  }
+}
