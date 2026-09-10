@@ -1,8 +1,8 @@
 project_id = "clocktower-storyteller"
 
 [auth]
-site_url = "https://merelyfun.github.io/blood-on-the-clocktower/"
-additional_redirect_urls = ["http://127.0.0.1:5173/", "http://localhost:5173/", "https://merelyfun.github.io/blood-on-the-clocktower/"]
+site_url = "https://xn--hyvt5k.club/blood-on-the-clocktower/"
+additional_redirect_urls = ["http://127.0.0.1:5173/", "http://localhost:5173/", "https://merelyfun.github.io/blood-on-the-clocktower/", "https://xn--hyvt5k.club/blood-on-the-clocktower/"]
 enable_anonymous_sign_ins = true
 
 [functions.game]
