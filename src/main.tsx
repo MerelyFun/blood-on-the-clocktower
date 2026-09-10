@@ -8,3 +8,4 @@ import './styles/ui-refinement.css';
 import './styles/mobile.css';
 import './styles/parchment.css';
 import './styles/rounded.css';
+import './styles/table-scene.css';
