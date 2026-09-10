@@ -1,8 +1,10 @@
 # Supabase 配置清单
 
+2026-09-11：正式 Site URL 与回跳白名单已加入 https://merelyfun.github.io/blood-on-the-clocktower/；ALLOWED_ORIGINS 已加入 https://merelyfun.github.io，并保留本机地址。公开连接配置已设为 GitHub 仓库构建变量。
+
 **2026-09-10 当前状态：项目 `pyulxbobnxyudrlisqyv` 已配置完成，无需重复执行下面的初始化步骤。** 已创建 9 张业务表并启用 RLS，部署 `game` 函数，开启匿名登录，配置本机登录回跳与允许来源，并写入本机 `.env.local`、重新构建前端。
 
-真实云端创建与重试、申请审批、配牌、私信隔离、跨账号读取与命令权限、领牌确认重试、换设备绑定均已验证；电脑与手机宽度的两个独立浏览器会话通过，临时房间及账号已清理。尚未验证个人邮箱登录、真实手机和长时间断线重连，前端尚未公开发布。安全顾问提示匿名账号适用 authenticated 策略，这是本项目匿名玩家模式的预期配置；已另行验证座位与房间权限隔离。
+真实云端创建与重试、申请审批、配牌、私信隔离、跨账号读取与命令权限、领牌确认重试、换设备绑定均已验证；电脑与手机宽度的两个独立浏览器会话通过，临时房间及账号已清理。尚未验证个人邮箱登录、真实手机和长时间断线重连，前端已发布：https://merelyfun.github.io/blood-on-the-clocktower/。安全顾问提示匿名账号适用 authenticated 策略，这是本项目匿名玩家模式的预期配置；已另行验证座位与房间权限隔离。
 
 现在打开本机网站的账号设置，使用邮箱登录链接登录后即可创建联机房间。默认邮件服务仅允许项目团队成员邮箱；GitHub 登录仍需另行配置。以下保留为新项目安装和后续部署参考。
 
@@ -55,7 +57,7 @@ order by c.relname;
 
 ## 4. 部署 game 函数
 
-Windows PowerShell 中进入本项目，运行下面命令。将 `YOUR_PROJECT_REF` 替换为你的项目标识。CLI 2.117.0 的命令帮助已核对；部署本身尚未执行。
+Windows PowerShell 中进入本项目，运行下面命令。将 `YOUR_PROJECT_REF` 替换为你的项目标识。CLI 2.117.0 的命令帮助已核对；当前项目已经部署，以下命令供后续更新参考。
 
 ```powershell
 Set-Location -LiteralPath 'E:\Code\Blood On The Clocktower'
@@ -79,4 +81,5 @@ VITE_SUPABASE_URL=https://项目标识.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 ```
 
-接入后继续验证主持人登录、玩家申请审批、不同账号身份隔离、固定发牌及刷新、换设备撤销旧绑定、断线恢复、超时重试和多人计票。这些云端验证尚未完成。
+接入后继续验证主持人登录、玩家申请审批、不同账号身份隔离、固定发牌及刷新、换设备撤销旧绑定、断线恢复、超时重试和多人计票。已完成的真实云端验证范围见本文顶部；个人邮箱收信与长期重连仍需实际使用验证。
+
