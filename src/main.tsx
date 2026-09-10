@@ -6,3 +6,4 @@ createRoot(document.getElementById('root')!).render(<App/>);
 import './styles/art-theme.css';
 import './styles/ui-refinement.css';
 import './styles/mobile.css';
+import './styles/parchment.css';
