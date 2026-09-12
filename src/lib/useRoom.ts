@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { api, ApiError, supabase } from './supabase';
+import { localBackendEnabled } from './localBackend';
 import { getLocal, localSubscription, mutateLocal } from './storage';
 import { uid, type Command, type Game, type RoomView } from './domain';
 export type Run=(type:string,payload?:Record<string,unknown>)=>Promise<boolean>;
@@ -12,6 +13,7 @@ export function useRoom(mode:'local'|'cloud',id:string){
   const onVisible=()=>{if(document.visibilityState==='visible')void refresh();};const offline=()=>setConnection('连接中断');window.addEventListener('online',refresh);window.addEventListener('offline',offline);document.addEventListener('visibilitychange',onVisible);
   let dispose=()=>{};let interval:ReturnType<typeof setInterval>|undefined;
   if(mode==='local')dispose=localSubscription(id,()=>void refresh());
+  else if(localBackendEnabled){interval=setInterval(()=>{if(document.visibilityState==='visible'&&!working.current)void refresh();},1500);}
   else {let realtimeReady=false;let lastRefresh=Date.now();const sb=supabase();const channel=sb?.channel(`bt-signals-${id}-${uid()}`).on('postgres_changes',{event:'*',schema:'public',table:'bt_signals',filter:`room_id=eq.${id}`},()=>{lastRefresh=Date.now();void refresh();}).subscribe(status=>{realtimeReady=status==='SUBSCRIBED';if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'||status==='CLOSED')setConnection('轮询同步');});dispose=()=>{if(channel)void sb?.removeChannel(channel);};interval=setInterval(()=>{if(document.visibilityState==='visible'&&Date.now()-lastRefresh>=(realtimeReady?60000:10000)){lastRefresh=Date.now();void refresh();}},10000);}
   return ()=>{active.current=false;generation.current++;dispose();if(interval)clearInterval(interval);window.removeEventListener('online',refresh);window.removeEventListener('offline',offline);document.removeEventListener('visibilitychange',onVisible);};
  },[id,mode,refresh]);

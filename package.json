@@ -4,20 +4,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "node scripts/dev.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "start": "node scripts/serve-dist.mjs",
     "db:migration": "node scripts/create-migration.mjs",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-transform-types --test tests/*.test.ts",
+    "test": "node --experimental-sqlite --experimental-transform-types --test tests/*.test.ts",
     "check": "npm run typecheck && npm test && npm run build",
     "typecheck:edge": "npx --yes deno@2.9.6 check --no-lock supabase/functions/game/index.ts",
     "predev": "node scripts/prepare-ocr.mjs",
     "prebuild": "node scripts/prepare-ocr.mjs"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": ">=22.17"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",

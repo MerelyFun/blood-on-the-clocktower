@@ -1,6 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2.116.0';
 import { applyCommand, createGame, GameError, personalView, publicGame, restoreGame } from '../_shared/engine.ts';
-import type { Command, Game, RoomView, Script } from '../_shared/types.ts';
+import type { Command, Game, PublicGame, RoomView, Script } from '../_shared/types.ts';
 
 const url=Deno.env.get('SUPABASE_URL')!;
 const serviceKey=Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
@@ -12,18 +12,25 @@ function required<T>(result:{data:T;error:any}):NonNullable<T> {const data=check
 function uuid(s:unknown):string {if(typeof s!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(s))throw new GameError('无效的操作标识。');return s;}
 const views=(g:Game)=>g.seats.map(s=>({seat_id:s.id,data:personalView(g,s.id)}));
 async function membership(room:string,actor:string){const m=check(await db.from('bt_members').select('*').eq('room_id',room).eq('user_id',actor).maybeSingle());if(!m||m.status==='revoked')throw new GameError(errors.FORBIDDEN,'FORBIDDEN');return m;}
+async function withOccupants(room:string,town:PublicGame):Promise<PublicGame>{
+ const occupants=required(await db.from('bt_members').select('seat_id,user_id').eq('room_id',room).eq('status','active'));
+ const opaque=async (userId:string)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(`${room}:${userId}`)))).map(x=>x.toString(16).padStart(2,'0')).join('');
+ return {...town,seats:await Promise.all(town.seats.map(async seat=>{const occupant=occupants.find(x=>x.seat_id===seat.id);return {...seat,...(occupant?{occupantId:await opaque(occupant.user_id)}:{})};}))};
+}
 async function readView(room:string,actor:string):Promise<RoomView> {
  const m=await membership(room,actor);
  if(m.status==='pending'){const r=required(await db.from('bt_rooms').select('id,title').eq('id',room).single());return {kind:'pending',id:r.id,title:r.title,status:'pending'};}
  if(m.role==='host'){
   const game=required(await db.from('bt_games').select('state').eq('room_id',room).single());
   const members=required(await db.from('bt_members').select('user_id,nickname,role,status,seat_id').eq('room_id',room).order('created_at'));
-  return {kind:'host',game:game.state as Game,members};
+  return {kind:'host',game:game.state as Game,publicRoom:await withOccupants(room,publicGame(game.state as Game)),members};
  }
  const [town,card]=await Promise.all([db.from('bt_public').select('data').eq('room_id',room).single(),db.from('bt_player_views').select('data').eq('room_id',room).eq('seat_id',m.seat_id).single()]);
  // Recheck membership after reads so a concurrent rebind cannot continue fetching stale private data.
  const current=await membership(room,actor);if(current.status!=='active'||current.seat_id!==m.seat_id)throw new GameError(errors.FORBIDDEN,'FORBIDDEN');
- return {kind:'player',room:required(town).data,personal:required(card).data};
+ const publicRoom=await withOccupants(room,required(town).data);
+ const latest=await membership(room,actor);if(latest.status!=='active'||latest.seat_id!==m.seat_id)throw new GameError(errors.FORBIDDEN,'FORBIDDEN');
+ return {kind:'player',room:publicRoom,personal:required(card).data};
 }
 async function readBody(req:Request) {const reader=req.body?.getReader();if(!reader)throw new GameError('缺少请求内容。');const chunks:Uint8Array[]=[];let size=0;for(;;){const r=await reader.read();if(r.done)break;size+=r.value.length;if(size>4_000_000){await reader.cancel();throw new GameError('请求内容超过 4 MB。');}chunks.push(r.value);}const data=new Uint8Array(size);let pos=0;for(const chunk of chunks){data.set(chunk,pos);pos+=chunk.length;}try{return JSON.parse(new TextDecoder().decode(data));}catch{throw new GameError('请求格式错误。');}}
 Deno.serve(async req=>{
@@ -38,6 +45,11 @@ Deno.serve(async req=>{
   const {data:{user},error}=await db.auth.getUser(auth.slice(7));
   if(error||!user)return reply({error:'登录已失效，请重新登录。',code:'UNAUTHENTICATED'},401);
   const body=await readBody(req);const actor=user.id;
+  if(body.action==='notebooks'){
+   // Forward the user JWT so the RPC derives ownership from auth.uid(), never service role.
+   const client=createClient(url,Deno.env.get('SUPABASE_ANON_KEY')!,{global:{headers:{Authorization:auth}},auth:{persistSession:false,autoRefreshToken:false}});
+   return reply(check(await client.rpc('notebook_operation',{p_operation:body.operation,p_id:body.id??null,p_room_id:body.roomId??null,p_data:body.data??null,p_expected_revision:body.expectedRevision??null})));
+  }
   if(body.action==='list'){
    const rows=check(await db.from('bt_members').select('role,status,room_id,bt_rooms(id,title,code,created_at)').eq('user_id',actor).neq('status','revoked').order('created_at',{ascending:false}));
    return reply({rooms:rows});
@@ -80,3 +92,4 @@ Deno.serve(async req=>{
   throw new GameError('未知请求。');
  }catch(e){if(e instanceof GameError)return reply({error:e.message,code:e.code},e.code==='FORBIDDEN'?403:e.code==='VERSION_CONFLICT'?409:400);return reply({error:'服务暂时不可用，请稍后刷新。',code:'INTERNAL_ERROR'},500);}
 });
+

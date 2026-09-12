@@ -7,6 +7,57 @@ export function artUrl(path: string): string {
 }
 
 export const ROLE_ART: Readonly<Record<string, string>> = {
+  "grandmother": "art/roles/grandmother.webp",
+  "sailor": "art/roles/sailor.webp",
+  "chambermaid": "art/roles/chambermaid.webp",
+  "exorcist": "art/roles/exorcist.webp",
+  "innkeeper": "art/roles/innkeeper.webp",
+  "gambler": "art/roles/gambler.webp",
+  "gossip": "art/roles/gossip.webp",
+  "courtier": "art/roles/courtier.webp",
+  "professor": "art/roles/professor.webp",
+  "minstrel": "art/roles/minstrel.webp",
+  "tealady": "art/roles/tealady.webp",
+  "pacifist": "art/roles/pacifist.webp",
+  "fool": "art/roles/fool.webp",
+  "goon": "art/roles/goon.webp",
+  "lunatic": "art/roles/lunatic.webp",
+  "tinker": "art/roles/tinker.webp",
+  "moonchild": "art/roles/moonchild.webp",
+  "godfather": "art/roles/godfather.webp",
+  "devilsadvocate": "art/roles/devilsadvocate.webp",
+  "assassin": "art/roles/assassin.webp",
+  "mastermind": "art/roles/mastermind.webp",
+  "zombuul": "art/roles/zombuul.webp",
+  "pukka": "art/roles/pukka.webp",
+  "shabaloth": "art/roles/shabaloth.webp",
+  "po": "art/roles/po.webp",
+  "clockmaker": "art/roles/clockmaker.webp",
+  "dreamer": "art/roles/dreamer.webp",
+  "snakecharmer": "art/roles/snakecharmer.webp",
+  "mathematician": "art/roles/mathematician.webp",
+  "flowergirl": "art/roles/flowergirl.webp",
+  "towncrier": "art/roles/towncrier.webp",
+  "oracle": "art/roles/oracle.webp",
+  "savant": "art/roles/savant.webp",
+  "seamstress": "art/roles/seamstress.webp",
+  "philosopher": "art/roles/philosopher.webp",
+  "artist": "art/roles/artist.webp",
+  "juggler": "art/roles/juggler.webp",
+  "sage": "art/roles/sage.webp",
+  "mutant": "art/roles/mutant.webp",
+  "sweetheart": "art/roles/sweetheart.webp",
+  "barber": "art/roles/barber.webp",
+  "klutz": "art/roles/klutz.webp",
+  "eviltwin": "art/roles/eviltwin.webp",
+  "witch": "art/roles/witch.webp",
+  "cerenovus": "art/roles/cerenovus.webp",
+  "pithag": "art/roles/pithag.webp",
+  "fanggu": "art/roles/fanggu.webp",
+  "vigormortis": "art/roles/vigormortis.webp",
+  "nodashii": "art/roles/nodashii.webp",
+  "vortox": "art/roles/vortox.webp",
+
   "washerwoman": "art/roles/washerwoman.webp",
   "librarian": "art/roles/librarian.webp",
   "investigator": "art/roles/investigator.webp",
@@ -35,10 +86,10 @@ export const TEAM_ART: Readonly<Record<string, string>> = {
   "townsfolk": "art/teams/townsfolk.webp",
   "outsider": "art/teams/outsider.webp",
   "minion": "art/teams/minion.webp",
-  "demon": "art/roles/imp.webp",
+  "demon": "art/teams/demon.webp",
   "traveller": "art/teams/traveller.webp",
   "fabled": "art/teams/fabled.webp",
-  "loric": "art/decoration/scroll-banner.webp"
+  "loric": "art/teams/loric.webp"
 };
 
 export const STATUS_ART: Readonly<Record<string, string>> = {
@@ -51,8 +102,10 @@ export const STATUS_ART: Readonly<Record<string, string>> = {
   "unavailable": "art/status/unavailable.webp",
   "night-action": "art/status/night-action.webp",
   "confused": "art/status/confused.webp",
-  "ability-used": "art/teams/fabled.webp",
-  "drunk": "art/roles/drunk.webp",
+  "ability-used": "art/status/ability-used.webp",
+  "pending-death": "art/status/pending-death.webp",
+  "exile": "art/status/exile.webp",
+  "drunk": "art/status/drunk.webp",
   "ready": "art/status/ready.webp",
   "waiting": "art/status/waiting.webp",
   "message": "art/status/message.webp",
@@ -62,11 +115,20 @@ export const STATUS_ART: Readonly<Record<string, string>> = {
 };
 
 export const SCRIPT_ART: Readonly<Record<string, string>> = {
-  "tb": "art/backgrounds/town-night-red.webp",
-  "bmr": "art/backgrounds/clocktower-close.webp",
-  "snv": "art/decoration/mystery-sigil.webp",
-  "custom": "art/decoration/scroll-banner.webp"
+  "tb": "art/scripts/tb.webp",
+  "bmr": "art/scripts/bmr.webp",
+  "snv": "art/scripts/snv.webp",
+  "custom": "art/scripts/custom.webp"
 };
+
+// Only exact, known reminder labels receive an icon; custom reminders keep their text.
+const REMINDER_STATUS: Readonly<Record<string, string>> = {
+  '醉酒': 'drunk', '中毒': 'poisoned', '保护': 'protected',
+  '能力已用': 'ability-used', '待公布死亡': 'pending-death'
+};
+export function reminderStatus(label: string): string | undefined {
+  return Object.hasOwn(REMINDER_STATUS, label) ? REMINDER_STATUS[label] : undefined;
+}
 
 export function roleArt(role?: { id?: string; team?: string } | null): string | undefined {
   if (!role) return undefined;

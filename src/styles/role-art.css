@@ -11,3 +11,8 @@
 }
 .role-token.small.has-art > img { width: 26px; height: 26px; }
 .identity-card.revealed .role-token.has-art > img { width: 44px; height: 44px; }
+.ui-art { display:inline-block; object-fit:contain; flex:none; vertical-align:middle; pointer-events:none; }
+.chip:has(.ui-art) { display:inline-flex; align-items:center; gap:4px; }
+.life-states strong:has(.ui-art) { display:flex; align-items:center; justify-content:center; gap:3px; }
+.community-art { display:block; max-width:100%; height:auto; margin:8px 0; }
+.workshop-selected-row h3>.team-badge { display:block; margin-bottom:2px; }

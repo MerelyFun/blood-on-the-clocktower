@@ -1,13 +1,40 @@
 # 部署指南
 
-前端是 Vite 静态站点，可部署到 GitHub Pages。联机房间依赖 Supabase Auth、Postgres、Realtime 和 Edge Functions；仅使用本机主持时可以跳过 Supabase。
+本地开发默认使用电脑上的 SQLite，无需配置 Supabase。生产前端可部署到 GitHub Pages，云端联机使用可选的 Supabase Auth、Postgres、Realtime 和 Edge Functions。以下云端配置只在准备云端联机时需要；完成本机验证不代表获得发布授权。
+
+玩家笔记升级：本机 SQLite 启动时自动创建 `notebooks` 表，旧 `notes` 表继续保留。云端升级时，需先应用 `supabase/migrations/20260912162912_player_notebooks.sql` 并更新 `game` Edge Function，再发布前端，以提供笔记 RPC 和稳定参与者公开标识。本次 2026-09-12 版本发布已应用该迁移并更新云端函数。仅执行本地预览或构建不会应用云端迁移。
 
 ## 1. 本地验证
 
-需要 Node.js 22.12 或更高版本。
+需要 Node.js 22.17 或更高版本，使用 Node 内置 SQLite。当前版本可能输出 experimental 警告；不需要另外安装数据库或 Docker。
 
 ```bash
 npm ci
+npm run dev
+```
+
+打开 `http://localhost:5174/`。此命令同时运行监听 `0.0.0.0:5174` 的 Vite 前端和监听 `127.0.0.1:5175` 的本机 API，前端通过同源 `/api/local` 代理访问 API。手机只需连接同一 Wi-Fi 并访问 `http://电脑的局域网IP:5174/`；若无法连接，检查电脑防火墙是否允许该本地开发服务。
+
+建议说书人和玩家统一使用局域网地址：`localhost` 与局域网 IP 是不同浏览器来源，各自保存不同设备凭据。不能把含 `localhost` 的邀请链接发给另一台手机。
+
+首页默认“本机数据库”支持多人加入；“仅此浏览器”是原有 IndexedDB 单设备模式。SQLite 数据库默认位于 `.local-data/clocktower.sqlite`，房间、设备会话、剧本和私人笔记会在重启后保留；不要提交该目录。删除数据库前先通过应用导出需要的存档和剧本，另行保存重要私人笔记。
+
+启动参数可通过终端环境变量覆盖：
+
+| 变量 | 默认值 | 用途 |
+| --- | --- | --- |
+| `CLOCKTOWER_PORT` | `5174` | 前端访问端口 |
+| `CLOCKTOWER_API_PORT` | `5175` | 仅本机监听的 API 端口 |
+| `LOCAL_DATABASE_PATH` | `.local-data/clocktower.sqlite` | SQLite 文件路径 |
+| `VITE_BACKEND` | 开发为 `local`，生产构建为 `supabase` | 显式选择数据后端 |
+
+例如 PowerShell 中使用 `$env:CLOCKTOWER_PORT="5180"` 后执行 `npm run dev`。本机模式不需要 Supabase key 或执行任何 Supabase migration。若需在开发中测试云端，设置 `VITE_BACKEND=supabase` 并提供下文公开配置，再重新启动。
+
+`npm run build` 默认构建云端版本，除非显式设置了 `VITE_BACKEND=local`；构建前留意 `.env.local` 和终端变量。`npm start` 仅提供 `dist` 静态文件，不启动本机 API，不能代替 `npm run dev` 作为完整本机数据库服务。不要将本机后端构建发布到 GitHub Pages。
+
+验证命令：
+
+```bash
 npm run check
 npm run typecheck:edge
 ```
@@ -48,7 +75,7 @@ GitHub OAuth App 的回调地址应使用 Supabase 控制台给出的 `/auth/v1/
 
 ```bash
 supabase link --project-ref YOUR_PROJECT_REF
-supabase secrets set ALLOWED_ORIGINS=https://YOUR_NAME.github.io,http://localhost:5173
+supabase secrets set ALLOWED_ORIGINS=https://YOUR_NAME.github.io,http://localhost:5174
 supabase functions deploy game --project-ref YOUR_PROJECT_REF --use-api
 ```
 
@@ -60,9 +87,10 @@ supabase functions deploy game --project-ref YOUR_PROJECT_REF --use-api
 
 ## 5. 配置前端环境变量
 
-复制 `.env.example` 为 `.env.local`，填写公开配置：
+仅需使用云端后端时，复制 `.env.example` 为 `.env.local`，填写公开配置；开发访问云端还需显式指定后端：
 
 ```dotenv
+VITE_BACKEND=supabase
 VITE_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 VITE_BASE_PATH=/YOUR_REPOSITORY/
@@ -106,7 +134,11 @@ VITE_TURNSTILE_SITE_KEY=
 
 | 表现 | 检查项 |
 | --- | --- |
-| 只能使用本机模式 | 检查前端 URL 和 publishable key，并重新构建 |
+| 本机数据库无法连接 | 使用 `npm run dev`，检查 API 启动日志、端口占用及 Node 版本 |
+| 手机无法打开本机预览 | 使用电脑当前局域网 IP；确认同一 Wi-Fi、服务运行及防火墙设置 |
+| 本地身份或房间似乎丢失 | 核对访问来源、浏览器和数据库路径；切换 IP、端口或清理站点数据会改变设备身份 |
+| 云端模式不可用 | 确认 `VITE_BACKEND=supabase`、前端 URL 和 publishable key，并重启或重新构建 |
+| “页面暂时无法继续” | 展开错误信息并检查浏览器控制台；这是通用错误页，不能仅凭页面文案认定 Supabase 故障 |
 | 玩家无法匿名加入 | 检查 Anonymous Sign-ins、验证码配置和 Auth 限流 |
 | 登录回调失败 | 检查 Site URL、Redirect URLs 和 OAuth 回调地址 |
 | 网站地址未获允许 | 将实际 Origin 加入 `ALLOWED_ORIGINS` |

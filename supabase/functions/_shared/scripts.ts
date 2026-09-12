@@ -1,6 +1,13 @@
 import { CATALOG, ROLE_MAP } from './catalog.ts';
 import { TEAMS, type Role, type Script } from './types.ts';
-export const uid = () => crypto.randomUUID();
+export function uid():string {
+ // randomUUID is restricted to secure contexts; getRandomValues also works on LAN HTTP.
+ if(typeof crypto.randomUUID==='function')return crypto.randomUUID();
+ const bytes=crypto.getRandomValues(new Uint8Array(16));
+ bytes[6]=(bytes[6]&0x0f)|0x40;bytes[8]=(bytes[8]&0x3f)|0x80;
+ const hex=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
+ return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+}
 export function copyScript(script: Script): Script {return {...structuredClone(script),id:uid(),name:`${script.name} · 自定义`,author:'',version:1,updatedAt:new Date().toISOString()};}
 function order(x:unknown) {return typeof x==='number' && Number.isFinite(x) && x>=0?Math.min(x,10000):0;}
 function strings(x:unknown):string[] {return Array.isArray(x)?x.filter(v=>typeof v==='string').map(v=>v.slice(0,200)).slice(0,50):[];}

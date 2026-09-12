@@ -10,3 +10,6 @@ import './styles/parchment.css';
 import './styles/rounded.css';
 import './styles/table-scene.css';
 import './styles/workshop.css';
+
+import './styles/compact-mobile.css';
+import './styles/notes.css';

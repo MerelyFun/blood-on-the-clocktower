@@ -1,5 +1,5 @@
 /* Script workshop: each screen serves one task; details open only on demand. */
-.workshop{padding:0 18px 24px;min-height:calc(100dvh - 170px)}
+.workshop{min-width:0}
 .workshop-header{display:flex;align-items:center;gap:10px;padding:16px 0}.workshop-header h1{font-size:26px;line-height:1.3;margin:0;flex:1}.workshop-header>.button{min-width:48px;padding:10px}
 .workshop-scene{display:flex;flex-direction:column;align-items:center;text-align:center;background:#805034 url('../../public/art/table/table-night.webp') center/cover;border-radius:18px;padding:22px 16px;gap:8px;color:#fff1ce}
 .workshop-scene>.portrait-frame{width:110px;height:110px}.workshop-scene h2{font-size:25px;line-height:1.3;margin:0;overflow-wrap:anywhere;color:#fff1ce;text-shadow:0 1px 3px #432719}.workshop-scene p{margin:0;font-size:14px;color:#fff1ce}.workshop-scene>.button{margin-top:6px;min-width:142px;background:#792e38;color:#fff1ce;border-color:#d6a569}
@@ -13,3 +13,30 @@
 .workshop-empty{padding:35px 12px;text-align:center;color:#806a50;line-height:1.7}.workshop-add-footer{display:flex;gap:8px;justify-content:space-between;position:sticky;bottom:0;background:#f2e8d3;padding:12px 0 calc(12px + env(safe-area-inset-bottom));z-index:2}.workshop-details{padding-top:12px}.workshop .search-field{min-height:48px}.workshop .search-field input{min-width:0;width:100%}
 @media(max-width:370px){.workshop{padding-left:14px;padding-right:14px}.workshop-menu>button{gap:10px;padding:12px}.workshop-menu small{font-size:12px}.workshop-save>.button{font-size:15px}}
 .workshop-scene{padding:16px;gap:6px}.workshop-scene>.portrait-frame{width:96px;height:96px}.workshop-menu{margin:16px 0;gap:10px}.workshop-save{margin-top:16px}.workshop-checks{padding:0!important;margin:0!important;border:0!important}
+
+/* Shared page rhythm; long role libraries retain natural scrolling. */
+.workshop-header{padding:0 0 10px;min-height:44px}.workshop-header h1{font-size:20px}
+.workshop .workshop-scene{flex-direction:row;text-align:left;padding:12px;gap:10px;min-height:88px}
+.workshop-scene>div{flex:1;min-width:0}.workshop-scene h2{font-size:19px}.workshop-scene p{font-size:12px}
+.workshop-scene>.button{min-width:0;margin:0;padding:8px;font-size:13px}
+.workshop-quick{display:flex;gap:8px;margin-top:10px}.workshop-quick>.button{flex:1;white-space:normal}
+.workshop-menu{gap:8px;margin:10px 0}.workshop-menu>button{min-height:64px;padding:10px 12px}.workshop-menu strong{font-size:16px}
+.workshop-selection{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;position:sticky;top:0;background:#f2e8d3;z-index:3;border-bottom:1px solid #c9bba2;margin-bottom:8px}
+.workshop-selection>span{min-width:0;overflow-wrap:anywhere;font-size:14px}.workshop-selection small{display:block;color:#806a50;font-size:12px}
+.workshop-selection>.button{flex:none}.workshop-selected-group{margin-top:16px}.workshop-selected-group>div{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.workshop-teams{flex-wrap:wrap;gap:5px;padding-bottom:8px}.workshop-teams button{font-size:13px;padding:6px 8px;gap:4px;min-height:44px}
+.workshop-roles{margin:12px 0;gap:8px}.workshop-role .role-token{width:56px;height:56px}.workshop-role{gap:4px}
+.workshop-save{position:sticky;bottom:0;z-index:2;background:#f2e8d3;padding:10px 0 calc(10px + env(safe-area-inset-bottom));margin-top:10px}
+.workshop.embedded{padding:0;min-height:0}
+
+.workshop-selection>strong{flex:none;font-size:13px;color:#782f3b}
+.workshop-selected-list{padding:8px 10px;margin-bottom:12px;border:1px solid #c9bba2;border-radius:10px;background:#faf4e7}
+.workshop-selected-list>p{font-size:13px;margin:0;color:#806a50}
+.workshop-selected-row{display:flex;align-items:flex-start;gap:8px;padding:4px 0}
+.workshop-selected-row+ .workshop-selected-row{border-top:1px solid #c9bba266}
+.workshop-selected-row h3{width:48px;flex:none;font-size:12px;line-height:22px;padding-top:3px}
+.workshop-selected-row h3 small{display:block;font-size:11px;color:#806a50;line-height:16px}
+.workshop-selected-row ul{display:flex;flex-wrap:wrap;gap:4px;list-style:none;margin:0;padding:0;min-width:0}
+.workshop-selected-row li{display:flex;align-items:stretch;border:1px solid #d6c3a4;border-radius:6px;background:#f2e8d3;max-width:100%}
+.workshop-selected-row li button{border:0;background:none;padding:6px;font-size:13px;min-height:44px;overflow-wrap:anywhere;color:#503827;text-align:left}
+.workshop-selected-row li .remove-selected{flex:none;min-width:30px;color:#782f3b;text-align:center;font-size:18px;border-left:1px solid #d6c3a4}

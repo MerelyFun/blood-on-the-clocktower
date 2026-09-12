@@ -41,7 +41,7 @@ export function Host({game:g,controller:c,mode}:{game:Game;controller:RoomContro
      <section className="grimoire-canvas">
       {g.paused&&<Alert>对局已暂停。<Button onClick={()=>c.run('pause',{paused:false})} disabled={c.busy}><Play size={20}/> 继续对局</Button></Alert>}
       {g.phase==='ended'&&<Alert kind="success">游戏结束：{g.winner}。可在记录中查看复盘。</Alert>}
-      <TownBoard seats={g.seats.map(s=>({...s,role:findRole(g.script,s.roleId)?.name,roleData:findRole(g.script,s.roleId),marks:g.reminders.filter(m=>m.target===s.id).map(m=>m.label)}))} phase={g.phase} round={g.round} winner={g.winner} list selected={selected} onSelect={setSelected} centerAction={g.phase!=='ended'&&<Button variant="primary" disabled={c.busy||g.paused} onClick={()=>setPhase(true)}>进入{g.phase==='night'?'白天':'夜晚'}<ArrowRight size={20}/></Button>}/>
+      <TownBoard seats={g.seats.map(s=>({...s,pendingDeath:!s.alive&&s.publicAlive,role:findRole(g.script,s.roleId)?.name,roleData:findRole(g.script,s.roleId),marks:g.reminders.filter(m=>m.target===s.id).map(m=>m.label)}))} phase={g.phase} round={g.round} winner={g.winner} list selected={selected} onSelect={setSelected} centerAction={g.phase!=='ended'&&<Button variant="primary" disabled={c.busy||g.paused} onClick={()=>setPhase(true)}>进入{g.phase==='night'?'白天':'夜晚'}<ArrowRight size={20}/></Button>}/>
       {pending.length>0&&<div className="canvas-actions"><Button variant="primary" onClick={()=>setDawn(true)} disabled={c.busy}>公布生死 · {pending.length}</Button></div>}
      </section>
      {seat&&<div className="inspector-column seat-open"><SeatInspector key={seat.id} game={g} seat={seat} run={c.run} busy={c.busy} onClose={()=>setSelected('')}/></div>}

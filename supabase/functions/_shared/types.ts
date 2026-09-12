@@ -30,7 +30,7 @@ export interface Nomination {
   voters: string[]; threshold: number; tally: number; adjustment: number; reason: string;
   status: 'open'|'tallied'|'executed'|'cancelled'; dies?: boolean;
 }
-export interface PublicSeat { id: string; index: number; name: string; traveller: boolean; left: boolean; alive: boolean; voteAvailable: boolean; role?: Role; }
+export interface PublicSeat { id: string; occupantId?: string; index: number; name: string; traveller: boolean; left: boolean; alive: boolean; voteAvailable: boolean; role?: Role; }
 export interface Review { at: string; winner: string; text: string; seats: GrimCard[]; }
 export interface Timer { endsAt: number|null; remaining: number; }
 export interface Game {
@@ -48,7 +48,7 @@ export interface PublicGame {
 }
 export interface PersonalView { seatId: string; cardVersion: number; acknowledged: number; role: Role|null; alignment: Alignment|null; messages: PrivateMessage[]; }
 export interface Member { user_id: string; nickname: string; role: 'host'|'player'; status: 'pending'|'active'|'revoked'; seat_id: string|null; }
-export type RoomView = { kind: 'host'; game: Game; members: Member[] } | {kind:'player'; room:PublicGame; personal: PersonalView} | {kind:'pending'; id:string; title:string; status:string};
+export type RoomView = { kind: 'host'; game: Game; publicRoom?:PublicGame; members: Member[] } | {kind:'player'; room:PublicGame; personal: PersonalView} | {kind:'pending'; id:string; title:string; status:string};
 export interface Command { type: string; payload?: Record<string,unknown>; }
 export type Actor = { kind:'host' } | { kind:'player'; seatId:string };
 export const TEAM_LABELS: Record<Team,string> = {townsfolk:'镇民',outsider:'外来者',minion:'爪牙',demon:'恶魔',traveller:'旅行者',fabled:'传奇角色',loric:'奇遇角色'};

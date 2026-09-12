@@ -7,3 +7,6 @@ supabase/.temp/
 .DS_Store
 
 public/ocr/
+
+# Local multiplayer database and its WAL files
+.local-data/
