@@ -130,11 +130,14 @@ export function reminderStatus(label: string): string | undefined {
   return Object.hasOwn(REMINDER_STATUS, label) ? REMINDER_STATUS[label] : undefined;
 }
 
-export function roleArt(role?: { id?: string; team?: string } | null): string | undefined {
+export function roleArt(role?: { id?: string; team?: string; custom?: boolean; raw?: Record<string, unknown> } | null): string | undefined {
   if (!role) return undefined;
   // Unmapped/custom roles retain their own name initial instead of a misleading icon.
   const path = role.id && Object.hasOwn(ROLE_ART, role.id) ? ROLE_ART[role.id] : undefined;
-  return path ? artUrl(path) : undefined;
+  if (path && !role.custom) return artUrl(path);
+  const images = Array.isArray(role.raw?.image) ? role.raw.image : [role.raw?.image];
+  const supplied = images.find((image): image is string => typeof image === 'string' && /^https?:\/\//i.test(image));
+  return supplied || (path ? artUrl(path) : undefined);
 }
 export function scriptArt(script?: { id?: string; meta?: Record<string, unknown> } | null): string {
   const english = script?.meta?.english;

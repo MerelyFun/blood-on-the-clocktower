@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { X, AlertCircle, Check, Moon, BookOpen, ChevronRight, LoaderCircle } from 'lucide-react';
 import { WIKI_NAMES } from '../lib/wiki';
 import { artUrl, roleArt, scriptArt, TEAM_ART, STATUS_ART, reminderStatus } from '../lib/art';
@@ -24,13 +24,29 @@ export function Modal({title,children,onClose,footer,wide=false}:{title:string;c
  useEffect(()=>{const old=document.activeElement as HTMLElement|null;const before=document.body.style.overflow;document.body.style.overflow='hidden';const el=ref.current;el?.focus();const key=(e:KeyboardEvent)=>{if(e.key==='Escape')onClose();if(e.key==='Tab'&&el){const all=Array.from(el.querySelectorAll<HTMLElement>('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href],[tabindex="0"]'));const first=all[0],last=all.at(-1);if(!first){e.preventDefault();return;}if(e.shiftKey&&(document.activeElement===first||document.activeElement===el)){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};document.addEventListener('keydown',key);return ()=>{document.removeEventListener('keydown',key);document.body.style.overflow=before;old?.focus();};},[]);
  return <div className="modal-overlay" onMouseDown={e=>{if(e.target===e.currentTarget)onClose();}}><div ref={ref} className={`modal ${wide?'wide':''}`} role="dialog" aria-modal="true" aria-label={title} tabIndex={-1}><header><h2>{title}</h2><Button variant="ghost" onClick={onClose} aria-label="关闭"><X size={20}/></Button></header><div className="modal-body">{children}</div>{footer&&<footer>{footer}</footer>}</div></div>;
 }
-export function RoleSelect({roles,value,onChange,empty=true,disabled=false}:{roles:Role[];value:string;onChange:(id:string)=>void;empty?:boolean;disabled?:boolean}){return <select value={value} onChange={e=>onChange(e.target.value)} disabled={disabled}>{empty&&<option value="">选择角色</option>}{TEAMS.map(team=><optgroup key={team} label={TEAM_LABELS[team]}>{roles.filter(r=>r.team===team).map(r=><option key={r.id} value={r.id}>{r.name}{r.unresolved?'（待补全）':''}</option>)}</optgroup>)}</select>;}
+export function RoleSelect({roles,value,onChange,empty=true,disabled=false}:{roles:Role[];value:string;onChange:(id:string)=>void;empty?:boolean;disabled?:boolean}){
+ const [open,setOpen]=useState(false),[query,setQuery]=useState('');
+ const root=useRef<HTMLSpanElement>(null),trigger=useRef<HTMLButtonElement>(null),id=useId();
+ const selected=roles.find(r=>r.id===value);
+ const matches=roles.filter(r=>`${r.name} ${r.id}`.toLowerCase().includes(query.trim().toLowerCase()));
+ useEffect(()=>{if(!open)return;const close=(e:PointerEvent)=>{if(!root.current?.contains(e.target as Node))setOpen(false);};document.addEventListener('pointerdown',close);return()=>document.removeEventListener('pointerdown',close);},[open]);
+ function choose(next:string){onChange(next);setOpen(false);trigger.current?.focus();}
+ return <span ref={root} className="role-select" onKeyDown={e=>{if(e.key==='Escape'&&open){e.stopPropagation();e.preventDefault();setOpen(false);trigger.current?.focus();}}}>
+  <button ref={trigger} type="button" className="role-select-trigger" disabled={disabled} aria-expanded={open&&!disabled} aria-controls={id} onClick={()=>{setOpen(!open);setQuery('');}}>{selected&&<RoleToken small role={selected}/>}<span>{selected?.name||'选择角色'}</span><ChevronRight size={15}/></button>
+  {open&&!disabled&&<span id={id} className="role-select-options" role="group" aria-label="角色选项" onClick={e=>e.preventDefault()}>
+   <input autoFocus aria-label="筛选角色" placeholder="搜索角色" value={query} onChange={e=>setQuery(e.target.value)}/>
+   {empty&&<button type="button" onClick={()=>choose('')}>清空选择</button>}
+   {TEAMS.map(team=>{const group=matches.filter(r=>r.team===team);return group.length?<span className="role-select-team" key={team}><strong>{TEAM_LABELS[team]}</strong>{group.map(r=><button type="button" key={r.id} aria-pressed={r.id===value} onClick={()=>choose(r.id)}><RoleToken small role={r}/><span>{r.name}{r.unresolved?'（待补全）':''}</span>{r.id===value&&<Check size={16}/>}</button>)}</span>:null;})}
+   {!matches.length&&<span>暂无匹配角色</span>}
+  </span>}
+ </span>;
+}
 /** Supply only the role already authorized for this view; never resolve a hidden role here. */
 export function RoleToken({role,small=false,alignment}:{role?:Role|null;small?:boolean;alignment?:string}){
  const src=role?.unresolved?undefined:roleArt(role);
  const [failedSrc,setFailedSrc]=useState<string>();
  const hasArt=Boolean(src&&src!==failedSrc);
- return <span className={`role-token ${small?'small':''} ${alignment||((role?.team==='minion'||role?.team==='demon')?'evil':'good')} ${role?.team==='traveller'?'traveller':''} ${hasArt?'has-art':''}`}>
+ return <span aria-hidden="true" className={`role-token ${small?'small':''} ${alignment||((role?.team==='minion'||role?.team==='demon')?'evil':'good')} ${role?.team==='traveller'?'traveller':''} ${hasArt?'has-art':''}`}>
   {hasArt?<img key={src} src={src} alt="" aria-hidden="true" width={small?26:44} height={small?26:44} decoding="async" onError={()=>setFailedSrc(src)}/>:<span>{role?.name?.slice(0,1)||'?'}</span>}
  </span>;
 }
