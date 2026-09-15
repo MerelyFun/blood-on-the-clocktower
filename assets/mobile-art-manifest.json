@@ -922,5 +922,12 @@
     "height": 96,
     "beforeBytes": 20738,
     "bytes": 3956
+  },
+  {
+    "path": "table/round-avatar.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 2335511,
+    "bytes": 9706
   }
 ]

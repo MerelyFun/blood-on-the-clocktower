@@ -21,7 +21,7 @@ for path in sorted(SOURCE.rglob('*')):
         relative = path.relative_to(SOURCE).with_suffix('.webp')
         if relative not in sources or path.suffix.lower() == '.png':
             sources[relative] = path
-for name in ('avatar-frame', 'player-avatar'):
+for name in ('avatar-frame', 'player-avatar', 'round-avatar'):
     sources[Path('table') / f'{name}.webp'] = ROOT / 'assets/source/mobile-portraits' / f'{name}.png'
 
 report = []
@@ -31,7 +31,7 @@ for relative, source in sorted(sources.items()):
     with Image.open(source) as original:
         im = ImageOps.exif_transpose(original).convert('RGBA')
         limit = LIMITS.get(relative.parts[0], 192)
-        if relative.stem in ('avatar-frame', 'player-avatar', 'death-slash'):
+        if relative.stem in ('avatar-frame', 'player-avatar', 'round-avatar', 'death-slash'):
             limit = 192
         if relative.stem == 'parchment-texture':
             limit = 256
