@@ -1,0 +1,926 @@
+[
+  {
+    "path": "backgrounds/clocktower-close.webp",
+    "width": 233,
+    "height": 135,
+    "beforeBytes": 44702,
+    "bytes": 3562
+  },
+  {
+    "path": "backgrounds/tavern-interior.webp",
+    "width": 228,
+    "height": 135,
+    "beforeBytes": 42016,
+    "bytes": 3870
+  },
+  {
+    "path": "backgrounds/town-day.webp",
+    "width": 234,
+    "height": 132,
+    "beforeBytes": 56152,
+    "bytes": 7266
+  },
+  {
+    "path": "backgrounds/town-fountain.webp",
+    "width": 201,
+    "height": 135,
+    "beforeBytes": 38994,
+    "bytes": 3370
+  },
+  {
+    "path": "backgrounds/town-night-blue.webp",
+    "width": 228,
+    "height": 132,
+    "beforeBytes": 44542,
+    "bytes": 3860
+  },
+  {
+    "path": "backgrounds/town-night-red.webp",
+    "width": 350,
+    "height": 172,
+    "beforeBytes": 78828,
+    "bytes": 5160
+  },
+  {
+    "path": "brand/clocktower-emblem.webp",
+    "width": 119,
+    "height": 119,
+    "beforeBytes": 19682,
+    "bytes": 3664
+  },
+  {
+    "path": "brand/clocktower-title.webp",
+    "width": 256,
+    "height": 142,
+    "beforeBytes": 145296,
+    "bytes": 6082
+  },
+  {
+    "path": "brand/clocktower-wordmark.webp",
+    "width": 256,
+    "height": 84,
+    "beforeBytes": 35632,
+    "bytes": 3096
+  },
+  {
+    "path": "cards/identity-back.webp",
+    "width": 126,
+    "height": 178,
+    "beforeBytes": 36178,
+    "bytes": 4218
+  },
+  {
+    "path": "community/ccc-parchment.webp",
+    "width": 360,
+    "height": 135,
+    "beforeBytes": 0,
+    "bytes": 7942
+  },
+  {
+    "path": "decoration/dark-panel.webp",
+    "width": 206,
+    "height": 134,
+    "beforeBytes": 29664,
+    "bytes": 1516
+  },
+  {
+    "path": "decoration/mystery-sigil.webp",
+    "width": 138,
+    "height": 136,
+    "beforeBytes": 22024,
+    "bytes": 3220
+  },
+  {
+    "path": "decoration/ornamental-divider.webp",
+    "width": 171,
+    "height": 43,
+    "beforeBytes": 3902,
+    "bytes": 1302
+  },
+  {
+    "path": "decoration/parchment-panel.webp",
+    "width": 238,
+    "height": 122,
+    "beforeBytes": 40282,
+    "bytes": 3292
+  },
+  {
+    "path": "decoration/parchment-square.webp",
+    "width": 124,
+    "height": 126,
+    "beforeBytes": 23518,
+    "bytes": 2838
+  },
+  {
+    "path": "decoration/parchment-texture.webp",
+    "width": 256,
+    "height": 256,
+    "beforeBytes": 9780,
+    "bytes": 232
+  },
+  {
+    "path": "decoration/scroll-banner.webp",
+    "width": 181,
+    "height": 70,
+    "beforeBytes": 15446,
+    "bytes": 2286
+  },
+  {
+    "path": "decoration/speech-blue.webp",
+    "width": 156,
+    "height": 109,
+    "beforeBytes": 17988,
+    "bytes": 1612
+  },
+  {
+    "path": "decoration/speech-parchment.webp",
+    "width": 154,
+    "height": 110,
+    "beforeBytes": 16556,
+    "bytes": 1480
+  },
+  {
+    "path": "decoration/wax-seal.webp",
+    "width": 120,
+    "height": 118,
+    "beforeBytes": 15868,
+    "bytes": 2402
+  },
+  {
+    "path": "factions/evil.webp",
+    "width": 96,
+    "height": 96,
+    "beforeBytes": 23506,
+    "bytes": 2550
+  },
+  {
+    "path": "factions/good.webp",
+    "width": 96,
+    "height": 96,
+    "beforeBytes": 25338,
+    "bytes": 3416
+  },
+  {
+    "path": "roles/artist.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 22700,
+    "bytes": 6644
+  },
+  {
+    "path": "roles/assassin.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 14932,
+    "bytes": 4120
+  },
+  {
+    "path": "roles/barber.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 16460,
+    "bytes": 4538
+  },
+  {
+    "path": "roles/baron.webp",
+    "width": 67,
+    "height": 67,
+    "beforeBytes": 6338,
+    "bytes": 1980
+  },
+  {
+    "path": "roles/butler.webp",
+    "width": 93,
+    "height": 93,
+    "beforeBytes": 13066,
+    "bytes": 3386
+  },
+  {
+    "path": "roles/cerenovus.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 24416,
+    "bytes": 6958
+  },
+  {
+    "path": "roles/chambermaid.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 20416,
+    "bytes": 6086
+  },
+  {
+    "path": "roles/chef.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11918,
+    "bytes": 2442
+  },
+  {
+    "path": "roles/clockmaker.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 24174,
+    "bytes": 6720
+  },
+  {
+    "path": "roles/courtier.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 13398,
+    "bytes": 4980
+  },
+  {
+    "path": "roles/devilsadvocate.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 26332,
+    "bytes": 8650
+  },
+  {
+    "path": "roles/dreamer.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 22910,
+    "bytes": 5960
+  },
+  {
+    "path": "roles/drunk.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11806,
+    "bytes": 2486
+  },
+  {
+    "path": "roles/empath.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11408,
+    "bytes": 2292
+  },
+  {
+    "path": "roles/eviltwin.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 28260,
+    "bytes": 8636
+  },
+  {
+    "path": "roles/exorcist.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 22026,
+    "bytes": 5896
+  },
+  {
+    "path": "roles/fanggu.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 22808,
+    "bytes": 6602
+  },
+  {
+    "path": "roles/flowergirl.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 21078,
+    "bytes": 6056
+  },
+  {
+    "path": "roles/fool.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 27658,
+    "bytes": 8216
+  },
+  {
+    "path": "roles/fortuneteller.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 12018,
+    "bytes": 2578
+  },
+  {
+    "path": "roles/gambler.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 20280,
+    "bytes": 5788
+  },
+  {
+    "path": "roles/godfather.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 17576,
+    "bytes": 5242
+  },
+  {
+    "path": "roles/goon.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 15738,
+    "bytes": 5414
+  },
+  {
+    "path": "roles/gossip.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 17328,
+    "bytes": 4958
+  },
+  {
+    "path": "roles/grandmother.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 23458,
+    "bytes": 7222
+  },
+  {
+    "path": "roles/imp.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11692,
+    "bytes": 2558
+  },
+  {
+    "path": "roles/innkeeper.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 19742,
+    "bytes": 5576
+  },
+  {
+    "path": "roles/investigator.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11296,
+    "bytes": 2392
+  },
+  {
+    "path": "roles/juggler.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 25274,
+    "bytes": 7672
+  },
+  {
+    "path": "roles/klutz.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 21108,
+    "bytes": 6116
+  },
+  {
+    "path": "roles/librarian.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11828,
+    "bytes": 2532
+  },
+  {
+    "path": "roles/lunatic.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 33486,
+    "bytes": 10398
+  },
+  {
+    "path": "roles/mastermind.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 18548,
+    "bytes": 5574
+  },
+  {
+    "path": "roles/mathematician.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 16228,
+    "bytes": 5436
+  },
+  {
+    "path": "roles/mayor.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11946,
+    "bytes": 2528
+  },
+  {
+    "path": "roles/minstrel.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 27858,
+    "bytes": 8092
+  },
+  {
+    "path": "roles/monk.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 12092,
+    "bytes": 2604
+  },
+  {
+    "path": "roles/moonchild.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 22206,
+    "bytes": 6610
+  },
+  {
+    "path": "roles/mutant.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 23030,
+    "bytes": 6446
+  },
+  {
+    "path": "roles/nodashii.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 27244,
+    "bytes": 8308
+  },
+  {
+    "path": "roles/oracle.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 25876,
+    "bytes": 7784
+  },
+  {
+    "path": "roles/pacifist.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 24742,
+    "bytes": 7180
+  },
+  {
+    "path": "roles/philosopher.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 16374,
+    "bytes": 4588
+  },
+  {
+    "path": "roles/pithag.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 28552,
+    "bytes": 8582
+  },
+  {
+    "path": "roles/po.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 17000,
+    "bytes": 5080
+  },
+  {
+    "path": "roles/poisoner.webp",
+    "width": 93,
+    "height": 93,
+    "beforeBytes": 13406,
+    "bytes": 3452
+  },
+  {
+    "path": "roles/professor.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 36868,
+    "bytes": 11372
+  },
+  {
+    "path": "roles/pukka.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 22676,
+    "bytes": 7104
+  },
+  {
+    "path": "roles/ravenkeeper.webp",
+    "width": 169,
+    "height": 163,
+    "beforeBytes": 14656,
+    "bytes": 2800
+  },
+  {
+    "path": "roles/recluse.webp",
+    "width": 73,
+    "height": 189,
+    "beforeBytes": 13680,
+    "bytes": 3200
+  },
+  {
+    "path": "roles/sage.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 17918,
+    "bytes": 5206
+  },
+  {
+    "path": "roles/sailor.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 27700,
+    "bytes": 8178
+  },
+  {
+    "path": "roles/saint.webp",
+    "width": 93,
+    "height": 93,
+    "beforeBytes": 13352,
+    "bytes": 3530
+  },
+  {
+    "path": "roles/savant.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 27038,
+    "bytes": 8010
+  },
+  {
+    "path": "roles/scarletwoman.webp",
+    "width": 69,
+    "height": 71,
+    "beforeBytes": 5594,
+    "bytes": 1608
+  },
+  {
+    "path": "roles/seamstress.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 28640,
+    "bytes": 8790
+  },
+  {
+    "path": "roles/shabaloth.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 20774,
+    "bytes": 6054
+  },
+  {
+    "path": "roles/slayer.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11424,
+    "bytes": 2512
+  },
+  {
+    "path": "roles/snakecharmer.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 23016,
+    "bytes": 6764
+  },
+  {
+    "path": "roles/soldier.webp",
+    "width": 65,
+    "height": 65,
+    "beforeBytes": 6914,
+    "bytes": 1762
+  },
+  {
+    "path": "roles/spy.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11624,
+    "bytes": 2612
+  },
+  {
+    "path": "roles/sweetheart.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 26214,
+    "bytes": 7702
+  },
+  {
+    "path": "roles/tealady.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 23450,
+    "bytes": 6844
+  },
+  {
+    "path": "roles/tinker.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 18620,
+    "bytes": 5252
+  },
+  {
+    "path": "roles/towncrier.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 18534,
+    "bytes": 5078
+  },
+  {
+    "path": "roles/undertaker.webp",
+    "width": 67,
+    "height": 67,
+    "beforeBytes": 6414,
+    "bytes": 1934
+  },
+  {
+    "path": "roles/vigormortis.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 20642,
+    "bytes": 6424
+  },
+  {
+    "path": "roles/virgin.webp",
+    "width": 93,
+    "height": 93,
+    "beforeBytes": 13328,
+    "bytes": 3462
+  },
+  {
+    "path": "roles/vortox.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 20940,
+    "bytes": 5952
+  },
+  {
+    "path": "roles/washerwoman.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11780,
+    "bytes": 2476
+  },
+  {
+    "path": "roles/witch.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 16146,
+    "bytes": 4574
+  },
+  {
+    "path": "roles/zombuul.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 21370,
+    "bytes": 6532
+  },
+  {
+    "path": "scripts/bmr.webp",
+    "width": 128,
+    "height": 128,
+    "beforeBytes": 52324,
+    "bytes": 4024
+  },
+  {
+    "path": "scripts/custom.webp",
+    "width": 128,
+    "height": 128,
+    "beforeBytes": 57384,
+    "bytes": 4428
+  },
+  {
+    "path": "scripts/snv.webp",
+    "width": 128,
+    "height": 128,
+    "beforeBytes": 54614,
+    "bytes": 4188
+  },
+  {
+    "path": "scripts/tb.webp",
+    "width": 128,
+    "height": 128,
+    "beforeBytes": 53544,
+    "bytes": 4310
+  },
+  {
+    "path": "status/ability-used.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 30584,
+    "bytes": 1616
+  },
+  {
+    "path": "status/alive.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 8846,
+    "bytes": 1842
+  },
+  {
+    "path": "status/confused.webp",
+    "width": 71,
+    "height": 71,
+    "beforeBytes": 7510,
+    "bytes": 1780
+  },
+  {
+    "path": "status/dead.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 8054,
+    "bytes": 1656
+  },
+  {
+    "path": "status/drunk.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 40254,
+    "bytes": 2018
+  },
+  {
+    "path": "status/execution.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 7732,
+    "bytes": 1726
+  },
+  {
+    "path": "status/exile.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 38900,
+    "bytes": 2020
+  },
+  {
+    "path": "status/ghost-vote-available.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 9244,
+    "bytes": 2060
+  },
+  {
+    "path": "status/ghost-vote-used.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 10174,
+    "bytes": 2204
+  },
+  {
+    "path": "status/message.webp",
+    "width": 67,
+    "height": 67,
+    "beforeBytes": 6552,
+    "bytes": 2022
+  },
+  {
+    "path": "status/night-action.webp",
+    "width": 69,
+    "height": 69,
+    "beforeBytes": 5856,
+    "bytes": 1210
+  },
+  {
+    "path": "status/nomination.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 6970,
+    "bytes": 1540
+  },
+  {
+    "path": "status/pending-death.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 48416,
+    "bytes": 2200
+  },
+  {
+    "path": "status/poisoned.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 7038,
+    "bytes": 1412
+  },
+  {
+    "path": "status/private.webp",
+    "width": 67,
+    "height": 67,
+    "beforeBytes": 6638,
+    "bytes": 1988
+  },
+  {
+    "path": "status/protected.webp",
+    "width": 72,
+    "height": 72,
+    "beforeBytes": 7870,
+    "bytes": 1554
+  },
+  {
+    "path": "status/ready.webp",
+    "width": 65,
+    "height": 65,
+    "beforeBytes": 6616,
+    "bytes": 1682
+  },
+  {
+    "path": "status/unavailable.webp",
+    "width": 69,
+    "height": 69,
+    "beforeBytes": 6698,
+    "bytes": 1524
+  },
+  {
+    "path": "status/waiting.webp",
+    "width": 67,
+    "height": 67,
+    "beforeBytes": 7182,
+    "bytes": 1726
+  },
+  {
+    "path": "table/avatar-frame.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 264794,
+    "bytes": 11508
+  },
+  {
+    "path": "table/death-slash.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 227172,
+    "bytes": 12026
+  },
+  {
+    "path": "table/player-avatar.webp",
+    "width": 192,
+    "height": 192,
+    "beforeBytes": 0,
+    "bytes": 9706
+  },
+  {
+    "path": "table/table-day.webp",
+    "width": 768,
+    "height": 512,
+    "beforeBytes": 381084,
+    "bytes": 25804
+  },
+  {
+    "path": "table/table-night.webp",
+    "width": 768,
+    "height": 512,
+    "beforeBytes": 240932,
+    "bytes": 15722
+  },
+  {
+    "path": "table/village-day.webp",
+    "width": 768,
+    "height": 432,
+    "beforeBytes": 394724,
+    "bytes": 59166
+  },
+  {
+    "path": "table/village-night.webp",
+    "width": 768,
+    "height": 432,
+    "beforeBytes": 278438,
+    "bytes": 38074
+  },
+  {
+    "path": "teams/demon.webp",
+    "width": 96,
+    "height": 96,
+    "beforeBytes": 53086,
+    "bytes": 3030
+  },
+  {
+    "path": "teams/fabled.webp",
+    "width": 71,
+    "height": 71,
+    "beforeBytes": 6612,
+    "bytes": 1462
+  },
+  {
+    "path": "teams/loric.webp",
+    "width": 96,
+    "height": 96,
+    "beforeBytes": 53164,
+    "bytes": 2902
+  },
+  {
+    "path": "teams/minion.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 12114,
+    "bytes": 2716
+  },
+  {
+    "path": "teams/outsider.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11672,
+    "bytes": 2494
+  },
+  {
+    "path": "teams/townsfolk.webp",
+    "width": 87,
+    "height": 87,
+    "beforeBytes": 11972,
+    "bytes": 2492
+  },
+  {
+    "path": "teams/traveller.webp",
+    "width": 90,
+    "height": 96,
+    "beforeBytes": 20738,
+    "bytes": 3956
+  }
+]

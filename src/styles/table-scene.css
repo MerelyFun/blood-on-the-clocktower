@@ -5,7 +5,8 @@
 .scene-board .seat-node{position:absolute!important;transform:translate(-50%,-50%)!important;width:100px!important;height:auto;min-height:112px;display:flex!important;flex-direction:column;align-items:center;justify-content:flex-start;padding:0!important;gap:0!important;background:transparent!important;border:0!important;border-radius:14px;box-shadow:none!important;text-align:center;opacity:1}
 .scene-board .seat-node:focus-visible,.scene-board .seat-node.selected{outline:3px solid #fff1ad;outline-offset:4px}
 .portrait-frame{display:block;position:relative;width:84px;height:84px;flex:none}
-.portrait-content{position:absolute;inset:15%;border-radius:50%;background:#563028;display:flex;align-items:center;justify-content:center;color:#f9dfac;overflow:hidden}
+.portrait-content{position:absolute;inset:20%;border-radius:50%;background:#123557;display:flex;align-items:center;justify-content:center;color:#f9dfac;overflow:hidden}
+.portrait-content>.player-avatar{display:block;width:100%;height:100%;object-fit:contain;flex:none}
 .portrait-border{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
 .scene-board .seat-art{display:block;position:relative;width:84px;height:84px;grid-area:auto}
 .scene-board .seat-art .role-token{width:60px;height:60px;border:0;box-shadow:none;background:#f4e6c7}

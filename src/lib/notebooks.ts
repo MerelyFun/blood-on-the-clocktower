@@ -4,7 +4,8 @@ import { uid } from '../../supabase/functions/_shared/scripts.ts';
 export type NotePhase = 'day' | 'night';
 export interface NotePlayer { id:string; seatId?:string; index:number; name:string; noteName?:string; traveller:boolean; left?:boolean; joinedDay?:number; }
 export interface NoteEntry { id:string; day:number; phase:NotePhase; kind:'player'|'public'|'free'; playerId?:string; text:string; important:boolean; createdAt:string; sourceId?:string; }
-export interface RoleMark { id:string; playerId:string; day:number; phase:NotePhase; kind:'claim'|'guess'|'primary'|'extra'; roles:string[]; createdAt:string; }
+export interface NoteStatus { alive:boolean; executed:boolean; voteAvailable:boolean; }
+export interface RoleMark { id:string; playerId:string; day:number; phase:NotePhase; kind:'claim'|'guess'|'primary'|'extra'; roles:string[]; createdAt:string; status?:Partial<NoteStatus>; }
 export interface SeatState { id:string; playerId:string; day:number; phase:NotePhase; alive:boolean; voteAvailable:boolean; left:boolean; createdAt:string; index?:number; name?:string; }
 export interface Notebook {
  schemaVersion:1; tableRotation?:number; id:string; title:string; createdAt:string; updatedAt:string; archived:boolean;
@@ -29,6 +30,20 @@ export function playerAnnotations(book:Notebook,playerId:string,day:number):{pri
  return {primary,extras:[...new Set(extras)].filter(role=>role!==primary)};
 }
 export function stateAt(book:Notebook,playerId:string,day:number){return latest(book.states.filter(x=>x.playerId===playerId),day);}
+export function noteStatus(book:Notebook,playerId:string,day:number):NoteStatus {
+ const mark=markAt(book,playerId,'extra',day),state=stateAt(book,playerId,day);
+ return {alive:!(mark?.roles.includes('死亡')||state?.alive===false),executed:mark?.roles.includes('处决')??false,voteAvailable:!(mark?.roles.includes('死者票已用')||state?.voteAvailable===false),...mark?.status};
+}
+export function noteTags(book:Notebook,playerId:string,day:number):string[] {
+ const status=noteStatus(book,playerId,day);
+ return [...new Set([...playerAnnotations(book,playerId,day).extras.filter(v=>!['死亡','处决','死者票已用'].includes(v)),...(!status.alive?['死亡']:[]),...(status.executed?['处决']:[]),...(!status.voteAvailable?['死者票已用']:[])])];
+}
+export function setNoteTags(book:Notebook,playerId:string,day:number,values:string[]):Notebook {
+ const previous=noteStatus(book,playerId,day),requested={alive:!values.includes('死亡'),executed:values.includes('处决'),voteAvailable:!values.includes('死者票已用')};
+ const status={...markAt(book,playerId,'extra',day)?.status};
+ for(const key of ['alive','executed','voteAvailable'] as const)if(previous[key]!==requested[key])status[key]=requested[key];
+ return {...book,marks:[...book.marks,{id:uid(),playerId,day,phase:book.phase,kind:'extra',roles:[...new Set(values)].filter(v=>!['死亡','处决','死者票已用'].includes(v)),status,createdAt:new Date().toISOString()}]};
+}
 /** Consume only the public room projection. Never infer old seat state from today's snapshot. */
 export function syncPublicRoom(book:Notebook,room:PublicGame,mySeatId?:string):Notebook {
  const next=structuredClone(book),day=Math.max(1,room.round),phase:NotePhase=room.phase==='night'?'night':'day',now=new Date().toISOString();
@@ -45,7 +60,7 @@ export function syncPublicRoom(book:Notebook,room:PublicGame,mySeatId?:string):N
   if(!previous||previous.alive!==seat.alive||previous.voteAvailable!==seat.voteAvailable||previous.left!==seat.left||previous.index!==seat.index||previous.name!==seat.name)
    next.states.push({id:uid(),playerId:id,day,phase,alive:seat.alive,voteAvailable:seat.voteAvailable,left:seat.left,createdAt:now,index:seat.index,name:seat.name});
  }
- for(const player of next.players)if(!activeIds.has(player.id)&&!player.left){player.left=true;next.states.push({id:uid(),playerId:player.id,day,phase,alive:stateAt(next,player.id,day)?.alive??true,voteAvailable:false,left:true,createdAt:now});}
+ for(const player of next.players)if(player.id!=='notebook-storyteller'&&!activeIds.has(player.id)&&!player.left){player.left=true;next.states.push({id:uid(),playerId:player.id,day,phase,alive:stateAt(next,player.id,day)?.alive??true,voteAvailable:false,left:true,createdAt:now});}
  next.players.sort((a,b)=>a.index-b.index);
  const sources=new Set(next.entries.map(e=>e.sourceId).filter(Boolean));
  for(const event of room.events){
@@ -84,7 +99,7 @@ export function validateNotebook(v:unknown):v is Notebook {
  if(v.players.some(p=>(p.joinedDay!==undefined&&(!day(p.joinedDay)||Number(p.joinedDay)>Number(v.currentDay)))))return false;
  const base=(e:unknown):e is Record<string,unknown>=>object(e)&&str(e.id)&&day(e.day)&&Number(e.day)<=Number(v.currentDay)&&phase(e.phase)&&str(e.createdAt);
  return Array.isArray(v.entries)&&v.entries.length<=10000&&v.entries.every(e=>base(e)&&['player','public','free'].includes(String(e.kind))&&str(e.text)&&e.text.length<=100000&&typeof e.important==='boolean'&&optionalString(e.sourceId)&&optionalString(e.playerId)&&(e.kind!=='player'||ids.has(e.playerId)))
-  &&Array.isArray(v.marks)&&v.marks.length<=10000&&v.marks.every(m=>base(m)&&ids.has(m.playerId)&&['claim','guess','primary','extra'].includes(String(m.kind))&&Array.isArray(m.roles)&&m.roles.length<=(m.kind==='primary'?1:100)&&m.roles.every(r=>str(r)&&r.length<=300))
+  &&Array.isArray(v.marks)&&v.marks.length<=10000&&v.marks.every(m=>base(m)&&ids.has(m.playerId)&&['claim','guess','primary','extra'].includes(String(m.kind))&&Array.isArray(m.roles)&&m.roles.length<=(m.kind==='primary'?1:100)&&m.roles.every(r=>str(r)&&r.length<=300)&&(m.status===undefined||(object(m.status)&&['alive','executed','voteAvailable'].every(k=>((m.status as Record<string,unknown>)[k]===undefined||typeof (m.status as Record<string,unknown>)[k]==='boolean')))))
   &&Array.isArray(v.states)&&v.states.length<=10000&&v.states.every(s=>base(s)&&ids.has(s.playerId)&&optionalString(s.name)&&(s.index===undefined||(Number.isInteger(s.index)&&Number(s.index)>0))&&['alive','voteAvailable','left'].every(k=>typeof s[k]==='boolean'));
 }
 export function importNotebook(value:unknown):Notebook {

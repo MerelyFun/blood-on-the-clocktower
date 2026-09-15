@@ -108,3 +108,50 @@ button.note-extra-line{min-height:32px;max-width:100%;padding:3px 7px;border:1px
 .note-entry-actions button.danger{color:#913d45;background:#f4e1dc;border-color:#dec0b9}
 @media(max-width:700px){.note-player-body{padding:5px 10px}.note-player-panel>header{padding:5px 7px}.note-player-panel>header .button{min-width:32px;min-height:40px;padding:5px}.note-player-identity .note-player-name{font-size:14px}.note-header-role{font-size:12px}.note-entries>.note-entry{padding:4px 8px}}
 .large-text .notebook-table .scene-board .seat-role{font-size:12px!important;line-height:18px!important}
+/* The notebook table stays compact; long tables and notes remain scrollable. */
+.notebook-table{position:relative}
+.note-table-controls{position:absolute;inset:3px 4px auto;z-index:3;justify-content:space-between;margin:0;pointer-events:none}
+.note-table-controls button{pointer-events:auto;min-height:28px;padding:3px 7px;font-size:11px;gap:3px;border-radius:8px;background:#fff0d8ed}
+.notebook-table .compact-notes .seat-ring{height:var(--ring-height)!important}
+.notebook-table .compact-notes .seat-node{width:min(78px,22cqw)!important;min-height:0!important}
+.notebook-table .compact-notes .seat-node .seat-art,.notebook-table .compact-notes .seat-art .portrait-frame{width:32px;height:32px;margin-bottom:0}
+.notebook-table .compact-notes .seat-art .role-token{width:24px;height:24px}
+.notebook-table .compact-notes .seat-art .portrait-content>svg{width:18px;height:18px}
+.notebook-table .compact-notes .seat-node strong{font-size:11px!important;line-height:15px!important;padding:1px 3px!important}
+.notebook-table .compact-notes .seat-role{font-size:10px!important;line-height:13px!important;padding:0 3px;margin-top:1px}
+.notebook-table .compact-notes .seat-markers{margin-top:1px;gap:1px}
+.notebook-table .compact-notes .seat-markers small{font-size:10px;line-height:12px;padding:0 2px}
+.notebook-table .compact-notes .note-seat-states{display:flex;flex-wrap:wrap;justify-content:center;gap:1px 3px;padding:0 2px;max-width:100%;line-height:12px}
+.notebook-table .compact-notes .note-seat-states small{display:inline-flex;align-items:center;gap:1px;font-size:10px;line-height:12px;white-space:normal;overflow-wrap:anywhere}
+.notebook-table .compact-notes .note-seat-states:empty{display:none}
+.notebook-table .compact-notes .town-center{width:106px;max-width:106px;gap:1px}
+.notebook-table .compact-notes .town-center>.portrait-frame{width:35px;height:35px}
+.notebook-table .compact-notes .town-center>.portrait-frame svg{width:19px;height:19px}
+.notebook-table .compact-notes .town-center strong{font-size:11px;padding:2px 6px}
+.notebook-table .compact-notes .town-center h2{font-size:13px!important;line-height:17px!important;margin:1px 0}
+.notebook-table .compact-notes .town-center p{font-size:10px!important;line-height:14px;margin:0}
+.note-storyteller{border:0;background:transparent;color:inherit;font:inherit;padding:3px 5px;min-height:28px}
+.notebook-table .compact-notes .town-center .note-next-day{min-height:29px;padding:4px 5px;font-size:10px;margin:3px 0 0;width:100%}
+.execution-mark{position:absolute;right:-3px;bottom:-1px;width:19px;height:19px;padding:2px;z-index:3;border-radius:50%;background:#7a303d;color:#fff0d8;box-shadow:0 0 0 1px #f6d898}
+.note-general{margin-top:5px}
+.note-general>.note-section-heading{min-height:34px}
+.note-general>.note-section-heading h2{font-size:16px;margin:4px 0}
+.note-general-scroll{max-height:clamp(170px,30dvh,340px);overflow:auto;overscroll-behavior:contain;padding:0 2px 8px;scrollbar-width:thin}
+@media(max-width:700px){
+ .notebook-page{padding:4px 8px 12px}
+ .notebook-heading{margin-bottom:3px}
+ .notebook-heading .button{min-height:34px}
+ .note-days{margin-bottom:3px;padding-bottom:3px}
+ .note-days button{min-height:31px;padding:3px 8px;font-size:12px}
+ .notebook-table .town-board{border-radius:10px}
+ .note-table-controls button{min-height:28px}
+ .note-general-scroll{max-height:clamp(160px,27dvh,250px)}
+}
+.large-text .notebook-table .compact-notes .seat-node strong{font-size:13px!important;line-height:17px!important}
+.large-text .notebook-table .compact-notes .seat-role,.large-text .notebook-table .compact-notes .note-seat-states small,.large-text .notebook-table .compact-notes .seat-markers small{font-size:12px!important;line-height:15px!important}
+
+.note-script-heading{display:flex;align-items:center;gap:8px;font-size:12px;min-height:28px;margin-bottom:3px}.note-script-heading>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.note-script-heading .note-text-button{flex-shrink:0;min-height:28px;padding:3px}.note-team-heading{font-size:14px;margin:12px 0 6px}.note-config-roles{display:grid;gap:5px}.note-config-role{display:flex;align-items:center;gap:8px;padding:6px;border-bottom:1px solid #decbb0}.note-config-role>div{min-width:0}.note-config-role strong{font-size:13px}.note-config-role p{margin:2px 0;font-size:12px;line-height:1.45}.note-quick button,.note-extra-line>span{display:inline-flex;align-items:center;gap:3px}.note-quick button[aria-pressed=true]{background:#ead4b6;color:#712c41}.note-action-composer .chip{min-height:34px}.note-action-composer .chip.selected{background:#ead4b6;border-color:#986879}.note-action-preview p{font-size:14px;line-height:1.5;margin:5px 0}.note-role-controls+.note-search,.note-search{margin:8px 0}
+
+.notebook-table .compact-notes .note-seat-states{position:static;inset:auto;width:auto;height:auto;transform:none;color:#51382c;background:#f6e7cde8;border-radius:3px}.notebook-table .compact-notes .seat-index{margin-right:3px}
+
+.notebook-table .compact-notes .note-seat-states small{width:auto;height:auto;min-height:12px;max-width:100%;border-radius:2px;background:transparent;color:inherit;padding:0;flex-shrink:0}.notebook-table .compact-notes .note-seat-states small svg{width:11px;height:11px}
